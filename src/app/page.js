@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaBasketballBall, FaArrowRight, FaCircle, FaEnvelope, FaInfoCircle, FaHome } from 'react-icons/fa';
+import Comments from '@/app/components/features/comments/CommenList';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -96,7 +97,7 @@ export default function Home() {
             A place to make the best bets.
           </p>
 
-          {/* Contenedor de los botones */}
+          {/* Buttons container */}
           <div className="flex gap-4 mb-8">
             <button className="border border-[#E2E7EA] text-[#E2E7EA] px-6 py-2 rounded-md hover:bg-[#E2E7EA] hover:text-black transition-colors">
               Learn More
@@ -107,17 +108,17 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Redes sociales */}
+          {/* Social media */}
           <div className="flex justify-start gap-6 text-2xl text-white mt-16">
-            {/* Icono de facebook */}
+            {/* Facebook icon */}
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaFacebookF className="text-white hover:text-gray-400 text-xl" />
             </a>
-            {/* Icono de twitter */}
+            {/* Twitter icon */}
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaTwitter className="text-white hover:text-gray-400 text-xl" />
             </a>
-            {/* Icono de instagram */}
+            {/* Instagram icon*/}
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaInstagram className="text-white hover:text-gray-400 text-xl" />
             </a>
@@ -167,11 +168,11 @@ export default function Home() {
               href={item.href}
               className="relative flex items-center group"
             >
-              {/* Contenedor iconos header */}
+              {/* Header icons container */}
               <div className="w-8 h-8 flex items-center justify-center border border-[#7a7a7a] rounded-full">
                 <div className="text-xl text-[#ffffff]">{item.icon}</div>
               </div>
-              {/* Texto emergente */}
+              {/* Text */}
               <span
                 className="absolute right-14 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out text-white px- py-1 rounded-lg"
               >
@@ -240,9 +241,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Comments section */}
+        <section className="mt-12">
+          {/*   <h3 className="text-3xl font-bold mb-6 text-[#000000]">Comments</h3> */}
+          <Comments />
+        </section>
       </main>
-
-
 
       {/* Footer */}
       <footer className="px-8 py-6 sm:px-20 bg-gray-50 dark:bg-[#000]">
@@ -254,15 +259,15 @@ export default function Home() {
             height={20}
           />
           <div className="flex gap-4">
-            {/* Icono de facebook */}
+            {/* Facebook icon */}
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaFacebookF className="text-white hover:text-gray-400 text-xl" />
             </a>
-            {/* Icono de twitter */}
+            {/* Twitter icon */}
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaTwitter className="text-white hover:text-gray-400 text-xl" />
             </a>
-            {/* Icono de instagram */}
+            {/* Instagram icon */}
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaInstagram className="text-white hover:text-gray-400 text-xl" />
             </a>
