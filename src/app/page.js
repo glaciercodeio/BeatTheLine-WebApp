@@ -1,11 +1,34 @@
+'use client';
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaBasketballBall, FaArrowRight, FaCircle, FaEnvelope, FaInfoCircle, FaHome } from 'react-icons/fa';
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-8 py-4 sm:px-20 bg-black bg-opacity-90 backdrop-blur-md shadow-md fixed top-0 left-0 w-full z-30">
+      <nav
+        className={`flex justify-between items-center px-8 py-4 sm:px-20 fixed top-0 left-0 w-full z-30 transition-colors duration-300 ${isScrolled ? "bg-black" : "bg-transparent"
+          }`}
+      >
         <div className="flex items-center gap-4">
           <Image
             src="/BTL-Logo-Horz-Lt-Solid.png"
@@ -50,7 +73,7 @@ export default function Home() {
       </nav>
 
       {/* Header */}
-      <header className="relative flex items-center justify-start h-[650px] sm:h-128 w-full px-8 sm:px-20 text-white text-center sm:text-left mt-[57px]">
+      <header className="relative flex items-center justify-start h-[650px] sm:h-128 w-full px-8 sm:px-20 text-white text-center sm:text-left">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent z-10"></div>
         <div className="absolute inset-y-0 left-0 w-[30%] bg-gradient-to-r from-black to-transparent z-10"></div>
 
@@ -201,11 +224,25 @@ export default function Home() {
       {/* Main content */}
       <main className="flex-1 px-8 py-16 sm:px-20 bg-white dark:bg-[#E2E7EA]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold mb-8"></h2>
-          <p className="text-gray-700 dark:text-gray-300">
-          </p>
+          <h2 className="text-4xl font-bold mb-8 text-green-600">About Us</h2>
+
+          <div className="space-y-6">
+            <div className="p-6 border border-black rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+              <p className="text-black mb-4">
+                Welcome to Beat the Line, where passion for sports meets precision in data-driven betting. Based in the U.S., we combine cutting-edge data analytics, advanced algorithms, and mathematical strategies to help our partners outsmart the markets. Our approach is built on more than just numbers—we believe in building lasting relationships with the people who trust us.
+              </p>
+            </div>
+
+            <div className="p-6 border border-black rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+              <p className="text-black mb-4">
+                At Beat the Line, we’re not just about results; we’re about empowering our partners with insights, strategies, and support to help them succeed. With a relentless drive for innovation and a commitment to staying one step ahead, we’re here to make smarter betting accessible and rewarding for everyone. Together, we can beat the line and achieve greatness.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
+
+
 
       {/* Footer */}
       <footer className="px-8 py-6 sm:px-20 bg-gray-50 dark:bg-[#000]">
