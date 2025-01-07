@@ -63,12 +63,13 @@ const Comments = () => {
                 {allComments.slice(0, visibleComments).map((comment, index) => (
                     <div
                         key={comment.id}
-                        className="border border-[#1f1f1f] bg-black text-white py-12 px-20 flex flex-col justify-between h-80"
+                        className="border border-[#1f1f1f] bg-black text-white py-12 px-20 flex flex-col justify-between h-full"
                     >
                         {/* User info */}
                         <div className="flex items-center mb-4">
                             <div
-                                className={`${randomColors[index]} text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-3`}
+                                className={`${randomColors[index]} text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xl mr-3`}
+                                style={{ minWidth: "32px", minHeight: "32px" }}
                             >
                                 {comment.user.charAt(0).toUpperCase()}
                             </div>
