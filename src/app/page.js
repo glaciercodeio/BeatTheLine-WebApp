@@ -74,7 +74,7 @@ export default function Home() {
       </nav>
 
       {/* Header */}
-      <header className="relative flex items-center justify-center sm:justify-start h-[650px] sm:h-128 w-full px-8 sm:px-20 text-white text-center sm:text-left">
+      <header className="relative flex items-center justify-center sm:justify-start h-[800px] sm:h-128 w-full px-8 sm:px-20 text-white text-center sm:text-left">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent z-10"></div>
         <div className="absolute inset-y-0 left-0 w-[30%] bg-gradient-to-r from-black to-transparent z-10"></div>
 
@@ -149,50 +149,48 @@ export default function Home() {
               </a>
             ))}
         </div>
-
       </header>
 
-      <div className="bg-[#111] py-6">
+      <div className="bg-[#111] py-4">
         <div className="overflow-hidden w-full">
-          <div className="flex animate-marquee w-full gap-10 items-center">
-            <span className="text-3xl font-normal text-white tracking-widest">NBA</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">NFL</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">MLB</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">NHL</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">MLS</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">UFC</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">PGA</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">NCAA</span>
+          <div className="flex animate-marquee items-center gap-10">
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/MLS.png" alt="MLS Logo" className="inline-block w-20 mr-[300px]" />
+            </span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/NBA.png" alt="NBA Logo" className="inline-block w-20 mr-[300px]" />
+            </span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/NHL.svg" alt="NHL Logo" className="inline-block w-32 mr-[300px]" />
+            </span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/beis.svg" alt="Baseball Logo" className="inline-block w-20 mr-[300px]" />
+            </span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/NFL.svg" alt="NFL Logo" className="inline-block w-20 mr-[300px]" />
+            </span>
 
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">NBA</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">NFL</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">MLB</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">NHL</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">MLS</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">UFC</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">PGA</span>
-            <FaCircle className="text-white text-4xl mx-2" />
-            <span className="text-3xl font-normal text-white tracking-widest">NCAA</span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/MLS.png" alt="MLS Logo" className="inline-block w-20 mr-[300px]" />
+            </span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/NBA.png" alt="NBA Logo" className="inline-block w-20 mr-[300px]" />
+            </span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/NHL.svg" alt="NHL Logo" className="inline-block w-32 mr-[300px]" />
+            </span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/beis.svg" alt="Baseball Logo" className="inline-block w-20 mr-[300px]" />
+            </span>
+            <span className="text-3xl font-normal text-white tracking-widest">
+              <img src="/NFL.svg" alt="NFL Logo" className="inline-block w-20 mr-[300px]" />
+            </span>
           </div>
         </div>
       </div>
 
       {/* Main content */}
-      <main className="flex-1 px-8 py-16 sm:px-20 bg-white dark:bg-[#E2E7EA]">
+      <main className="flex-1 bg-white dark:bg-[#E2E7EA]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-8 text-green-600">About Us</h2>
 
