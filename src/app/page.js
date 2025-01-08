@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaBasketballBall, FaArrowRight, FaCircle, FaEnvelope, FaInfoCircle, FaHome } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaBasketballBall, FaArrowRight, FaCircle, FaEnvelope, FaInfoCircle, FaHome, FaYoutube, FaDiscord } from 'react-icons/fa';
 import Comments from '@/app/components/features/comments/CommenList';
 
 export default function Home() {
@@ -39,29 +39,29 @@ export default function Home() {
           />
         </div>
 
-        {/* <ul className="hidden sm:flex gap-6 text-sm font-medium">
+        <ul className="hidden sm:flex gap-6 text-lg font-medium">
           <li>
             <a
               href="#home"
-              className="hover:underline hover:underline-offset-4 text-white">
+              className="hover:text-[#72D53C] text-white">
               Home
             </a>
           </li>
           <li>
             <a
               href="#about"
-              className="hover:underline hover:underline-offset-4 text-white">
+              className="hover:text-[#72D53C] text-white">
               About
             </a>
           </li>
           <li>
             <a
               href="#contact"
-              className="hover:underline hover:underline-offset-4 text-white">
+              className="hover:text-[#72D53C] text-white">
               Contact
             </a>
           </li>
-        </ul> */}
+        </ul>
 
         <div className="flex items-center gap-4">
           <button className="px-4 py-2 text-sm font-medium text-white border border-[#333333] rounded hover:bg-[#131313]">
@@ -75,7 +75,8 @@ export default function Home() {
 
       {/* Header */}
       <header className="relative flex items-center justify-center sm:justify-start h-[800px] sm:h-128 w-full px-8 sm:px-20 text-white text-center sm:text-left">
-        <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent z-10"></div>
+        <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-black to-transparent z-10"></div>
+
         <div className="absolute inset-y-0 left-0 w-[30%] bg-gradient-to-r from-black to-transparent z-10"></div>
 
         <div className="absolute inset-0 z-0">
@@ -111,43 +112,37 @@ export default function Home() {
           {/* Social media */}
           <div className="flex justify-center sm:justify-start gap-6 text-2xl text-white mt-16">
             {/* Facebook icon */}
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaFacebookF className="text-white hover:text-gray-400 text-xl" />
-            </a>
+            </a> */}
             {/* Twitter icon */}
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaTwitter className="text-white hover:text-gray-400 text-xl" />
-            </a>
+            </a> */}
             {/* Instagram icon */}
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            {/* <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <FaInstagram className="text-white hover:text-gray-400 text-xl" />
+            </a> */}
+            {/* YouTube icon */}
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              <FaYoutube className="text-white hover:text-gray-400 text-xl" />
+            </a>
+
+            {/* Discord icon */}
+            <a
+              href="https://discord.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              <FaDiscord className="text-white hover:text-gray-400 text-xl" />
             </a>
           </div>
-        </div>
-
-        {/* Navigation icons */}
-        <div className="absolute top-1/3 right-10 flex flex-col gap-8 items-center z-20 sm:top-1/4 hidden sm:flex">
-          {[{ icon: <FaHome />, text: "Home", href: "#home" },
-          { icon: <FaInfoCircle />, text: "About", href: "#about" },
-          { icon: <FaEnvelope />, text: "Contact", href: "#contact" }]
-            .map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className="relative flex items-center group"
-              >
-                {/* Header icons container */}
-                <div className="w-8 h-8 flex items-center justify-center border border-[#7a7a7a] rounded-full">
-                  <div className="text-xl text-[#ffffff]">{item.icon}</div>
-                </div>
-                {/* Text */}
-                <span
-                  className="absolute right-14 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out text-white px- py-1 rounded-lg"
-                >
-                  {item.text}
-                </span>
-              </a>
-            ))}
         </div>
       </header>
 
@@ -191,27 +186,8 @@ export default function Home() {
 
       {/* Main content */}
       <main className="flex-1 bg-white dark:bg-[#E2E7EA]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 text-green-600">About Us</h2>
-
-          <div className="space-y-6">
-            <div className="p-6 border border-black rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
-              <p className="text-black mb-4">
-                Welcome to Beat the Line, where passion for sports meets precision in data-driven betting. Based in the U.S., we combine cutting-edge data analytics, advanced algorithms, and mathematical strategies to help our partners outsmart the markets. Our approach is built on more than just numbers—we believe in building lasting relationships with the people who trust us.
-              </p>
-            </div>
-
-            <div className="p-6 border border-black rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
-              <p className="text-black mb-4">
-                At Beat the Line, we’re not just about results; we’re about empowering our partners with insights, strategies, and support to help them succeed. With a relentless drive for innovation and a commitment to staying one step ahead, we’re here to make smarter betting accessible and rewarding for everyone. Together, we can beat the line and achieve greatness.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Comments section */}
-        <section className="mt-12">
-          {/*   <h3 className="text-3xl font-bold mb-6 text-[#000000]">Comments</h3> */}
+        <section className="">
           <Comments />
         </section>
       </main>
@@ -226,17 +202,24 @@ export default function Home() {
             height={20}
           />
           <div className="flex gap-4 mt-4 sm:mt-0">
-            {/* Facebook icon */}
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              <FaFacebookF className="text-white hover:text-gray-400 text-xl" />
+            {/* YouTube icon */}
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              <FaYoutube className="text-white hover:text-gray-400 text-xl" />
             </a>
-            {/* Twitter icon */}
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              <FaTwitter className="text-white hover:text-gray-400 text-xl" />
-            </a>
-            {/* Instagram icon */}
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              <FaInstagram className="text-white hover:text-gray-400 text-xl" />
+
+            {/* Discord icon */}
+            <a
+              href="https://discord.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              <FaDiscord className="text-white hover:text-gray-400 text-xl" />
             </a>
           </div>
           <p className="text-sm text-white">&copy; {new Date().getFullYear()} Beat the line. All rights reserved.</p>
