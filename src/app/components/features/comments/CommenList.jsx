@@ -33,82 +33,141 @@ const Comments = () => {
             text: "This platform is top-notch for betting, I highly recommend it!.",
             date: "2024-12-28",
         },
+        {
+            id: 6,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 7,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 8,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 9,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 10,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 11,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 12,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 13,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 14,
+            user: "Taylor Brown",
+            text: "This platform is top-notch for betting, I highly recommend it!.",
+            date: "2024-12-28",
+        },
+        {
+            id: 15,
+            user: "Taylor Brown",
+            text: "Hello.",
+            date: "2024-12-28",
+        },
     ];
 
     const colors = [
-        "bg-[#ef4444]",
-        "bg-[#10b981]",
-        "bg-[#0ea5e9]",
-        "bg-[#a855f7]",
-        "bg-[#ec4899]",
-        "bg-[#eab308]",
-        "bg-[#14b8a6]",
+        "bg-[#72D53C]",
+        /*  "bg-[#ef4444]",
+         "bg-[#10b981]",
+         "bg-[#0ea5e9]",
+         "bg-[#a855f7]",
+         "bg-[#ec4899]",
+         "bg-[#eab308]",
+         "bg-[#14b8a6]", */
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const goToNext = () => {
-        if (currentIndex < allComments.length - 3) {
-            setCurrentIndex(currentIndex + 1);
-        }
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % allComments.length);
     };
 
     const goToPrev = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-        }
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + allComments.length) % allComments.length);
     };
 
     return (
-        <div className="mt-12 bg-[#f1f1f1] py-14 pl-12 flex items-center">
-            {/* Contenedor text */}
-            <div className="w-1/3 flex flex-col ">
+        <div className="bg-[#f1f1f1] py-14 pl-12 flex items-center flex-col lg:flex-row">
+            {/* Text container */}
+            <div className="w-1/3 flex flex-col justify-between h-full">
                 {/* Text */}
                 <div className="text-[#000000] text-4xl font-semibold">
-                    From Data <br /> to Life-Changing <br /> Results.
+                    From Data <br />
+                    to<span className="text-[#72D53C] font-bold"> Life-Changing</span> <br /> Results.
                 </div>
 
                 {/* Buttons */}
                 <div className="flex justify-start space-x-4 mt-4">
                     <button
                         onClick={goToPrev}
-                        className="bg-black text-white p-3 rounded-full hover:bg-[#444] transition-all"
+                        className="bg-black text-white p-3 rounded-full hover:bg-[#72D53C] transition-all"
                     >
                         <FaArrowLeft size={24} />
                     </button>
                     <button
                         onClick={goToNext}
-                        className="bg-black text-white p-3 rounded-full hover:bg-[#444] transition-all"
+                        className="bg-black text-white p-3 rounded-full hover:bg-[#72D53C] transition-all"
                     >
                         <FaArrowRight size={24} />
                     </button>
                 </div>
             </div>
 
-            {/* Contenedor cards  */}
+            {/* Cards container */}
             <div className="relative w-2/3 overflow-hidden">
-                {/* Cards */}
                 <div
-                    className="flex space-x-8 transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentIndex * 300}px)` }}
+                    className="flex flex-nowrap space-x-8 transition-transform duration-500 ease-in-out"
+                    style={{
+                        transform: `translateX(-${currentIndex * 632}px)`,
+                        width: `${allComments.length * 632}px`,
+                    }}
                 >
                     {allComments.map((comment, index) => (
                         <div
                             key={comment.id}
-                            className="rounded-md bg-[#ffffff] text-white py-8 px-8 flex flex-col justify-between h-72 w-[500px]"
+                            className="rounded-md bg-[#ffffff] text-white py-8 px-8 flex flex-col justify-between h-72 w-[600px] shrink-0"
                         >
                             {/* User info */}
                             <div className="flex items-center mb-4">
                                 <div
                                     className={`${colors[index % colors.length]} text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xl mr-3`}
-                                    style={{ minWidth: "32px", minHeight: "32px" }}
                                 >
                                     {comment.user.charAt(0).toUpperCase()}
                                 </div>
                                 <div className="font-bold text-md text-black">{comment.user}</div>
                             </div>
 
-                            {/* Comment text */}
+                            {/* Comments */}
                             <p className="text-2xl font-semibold mb-4 text-black">{comment.text}</p>
 
                             {/* Date */}
