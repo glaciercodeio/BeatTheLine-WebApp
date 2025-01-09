@@ -25,54 +25,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Navbar */}
-      <nav
-        className={`flex justify-between items-center px-8 py-4 sm:px-20 fixed top-0 left-0 w-full z-30 transition-colors duration-300 ${isScrolled ? "bg-black" : "bg-transparent"
-          }`}
-      >
-        <div className="flex items-center gap-4">
-          <Image
-            src="/BTL-Logo-Horz-Lt-Solid.png"
-            alt="Website Logo"
-            width={130}
-            height={50}
-          />
-        </div>
-
-        <ul className="hidden sm:flex gap-6 text-lg font-medium">
-          <li>
-            <a
-              href="#home"
-              className="hover:text-[#72D53C] text-white">
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="#about"
-              className="hover:text-[#72D53C] text-white">
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              className="hover:text-[#72D53C] text-white">
-              Contact
-            </a>
-          </li>
-        </ul>
-
-        <div className="flex items-center gap-4">
-          <button className="px-4 py-2 text-sm font-medium text-white border border-[#333333] rounded hover:bg-[#131313]">
-            Log in
-          </button>
-          <button className="px-4 py-2 text-sm font-medium text-black bg-white  rounded hover:bg-gray-100">
-            Sign up
-          </button>
-        </div>
-      </nav>
-
       {/* Header */}
       <header className="relative flex items-center justify-center sm:justify-start h-[800px] sm:h-128 w-full px-8 sm:px-20 text-white text-center sm:text-left">
         <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-black to-transparent z-10"></div>
@@ -191,40 +143,6 @@ export default function Home() {
           <Comments />
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="px-8 py-6 sm:px-20 bg-gray-50 dark:bg-[#000]">
-        <div className="flex flex-col sm:flex-row justify-between items-center max-w-4xl mx-auto text-gray-600 dark:text-gray-400">
-          <Image
-            src="/BTL-Logo-Stkd-Lt-Mono.png"
-            alt="Twitter"
-            width={130}
-            height={20}
-          />
-          <div className="flex gap-4 mt-4 sm:mt-0">
-            {/* YouTube icon */}
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              <FaYoutube className="text-white hover:text-gray-400 text-xl" />
-            </a>
-
-            {/* Discord icon */}
-            <a
-              href="https://discord.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              <FaDiscord className="text-white hover:text-gray-400 text-xl" />
-            </a>
-          </div>
-          <p className="text-sm text-white">&copy; {new Date().getFullYear()} Beat the line. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 };

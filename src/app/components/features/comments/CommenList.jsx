@@ -127,7 +127,7 @@ const Comments = () => {
                 </div>
 
                 {/* Buttons */}
-                <div className="flex justify-start space-x-4 mt-4">
+                <div className="flex justify-start space-x-4 mt-6">
                     <button
                         onClick={goToPrev}
                         className="bg-black text-white p-3 rounded-full hover:bg-[#72D53C] transition-all"
@@ -168,7 +168,7 @@ const Comments = () => {
                             </div>
 
                             {/* Comments */}
-                            <p className="text-2xl font-semibold mb-4 text-black">{comment.text}</p>
+                            <p className="text-2xl font-regular mb-4 text-black">{comment.text}</p>
 
                             {/* Date */}
                             <div className="text-sm text-[#727272]">{comment.date}</div>
