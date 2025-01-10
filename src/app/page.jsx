@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaBasketballBall, FaArrowRight, FaCircle, FaEnvelope, FaInfoCircle, FaHome, FaYoutube, FaDiscord } from 'react-icons/fa';
 import Comments from '@/app/components/features/comments/CommenList';
+import PerformanceChart from "@/app/components/features/comments/PerformanceChart";
 import Link from "next/link";
 
 export default function Home() {
@@ -140,7 +141,15 @@ export default function Home() {
       </div>
 
       {/* Main content */}
-      <main className="flex-1 bg-white dark:bg-[#E2E7EA]">
+      <main className="flex-1 bg-white dark:bg-[#ffffff]">
+        {/* Chart section */}
+        <section>
+          <h1 className="text-center text-4xl font-semibold mt-10 text-black mb-10">Winning</h1>
+          <div className="w-[550px] h-72 mx-auto mb-20">
+            <PerformanceChart />
+          </div>
+        </section>
+
         {/* Comments section */}
         <section className="">
           <Comments />
