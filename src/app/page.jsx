@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaBasketballBall, FaArrowRight, FaCircle, FaEnvelope, FaInfoCircle, FaHome, FaYoutube, FaDiscord } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaBasketballBall, FaArrowRight, FaCircle, FaEnvelope, FaInfoCircle, FaHome, FaYoutube, FaDiscord, FaArrowUp, FaChartLine } from 'react-icons/fa';
 import Comments from '@/app/components/features/comments/CommenList';
 import PerformanceChart from "@/app/components/features/comments/PerformanceChart";
 import Link from "next/link";
@@ -143,10 +143,26 @@ export default function Home() {
       {/* Main content */}
       <main className="flex-1 bg-white dark:bg-[#ffffff]">
         {/* Chart section */}
-        <section>
-          <h1 className="text-center text-4xl font-semibold mt-10 text-black mb-10">Winning</h1>
-          <div className="w-[550px] h-72 mx-auto mb-20">
-            <PerformanceChart />
+        <section className="mb-16">
+          <h1 className="text-left pl-12 text-4xl font-semibold mt-10 text-black mb-10">Profit</h1>
+
+
+          <div className="flex gap-40 justify-center items-center space-x-8 mx-36">
+            <div className="">
+              <div className="text-[#72D53C] text-3xl mb-4"> <FaChartLine/></div>
+              <p className="text-2xl text-[#000000]">These are some of our data recorded in <span className="text-[#72D53C]">earnings</span> for the previous year.</p>
+            </div>
+            <div className="w-full max-w-[600px] h-[400px]">
+              <PerformanceChart />
+            </div>
+
+            <div className="text-center">
+              <div className="text-7xl font-regular flex items-center text-[#72D53C]">
+                <span className="mr-2">6.09%</span>
+                <FaArrowUp style={{ transform: 'rotate(45deg)', transition: 'transform 0.3s' }} />
+              </div>
+              <p className="text-[#000000] font-semibold">Our annual profit</p>
+            </div>
           </div>
         </section>
 

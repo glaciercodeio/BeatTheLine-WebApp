@@ -24,8 +24,8 @@ const PerformanceLineChartMonthly = () => {
                 data: winnings,
                 borderColor: '#72D53C',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                tension: 0.4,
-                borderWidth: 10,
+                tension: 0.1,
+                borderWidth: 5,
             },
         ],
     };
@@ -51,7 +51,7 @@ const PerformanceLineChartMonthly = () => {
         scales: {
             x: {
                 ticks: {
-                    color: '#FFFFFF',
+                    color: '#000000',
                 },
                 grid: {
                     color: '',
@@ -59,7 +59,7 @@ const PerformanceLineChartMonthly = () => {
             },
             y: {
                 ticks: {
-                    color: '#FFFFFF',
+                    color: '#000000',
                 },
                 grid: {
                     color: '',
@@ -69,7 +69,7 @@ const PerformanceLineChartMonthly = () => {
     };
 
     return (
-        <div style={{ backgroundColor: '#1E1E1E', padding: '20px', borderRadius: '8px' }}>
+        <div style={{ backgroundColor: '#ffffff', padding: '20px', borderRadius: '8px' }}>
             <Line data={data} options={options} />
         </div>
     );
