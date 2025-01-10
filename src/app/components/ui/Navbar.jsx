@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -37,25 +38,24 @@ export default function Navbar() {
 
             <ul className="hidden sm:flex gap-20 text-lg font-medium">
                 <li>
-                    <a
-                        href="#home"
-                        className="hover:text-[#72D53C] text-white">
+                    <Link rel="stylesheet" href="/" className="hover:text-[#72D53C] text-white">
                         Home
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a
-                        href="#about"
-                        className="hover:text-[#72D53C] text-white">
+                    <Link rel="stylesheet" href="/subscriptions" className="hover:text-[#72D53C] text-white">
+                        Subscriptions
+                    </Link>
+                </li>
+                <li>
+                    <Link rel="stylesheet" href="/" className="hover:text-[#72D53C] text-white">
                         About
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a
-                        href="#contact"
-                        className="hover:text-[#72D53C] text-white">
+                    <Link rel="stylesheet" href="/" className="hover:text-[#72D53C] text-white">
                         Contact
-                    </a>
+                    </Link>
                 </li>
             </ul>
 
@@ -67,6 +67,6 @@ export default function Navbar() {
                     Sign up
                 </button>
             </div>
-        </nav>
+        </nav >
     );
 }
