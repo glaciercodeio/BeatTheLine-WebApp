@@ -14,7 +14,7 @@ export default function Footer() {
                 <div className="flex gap-4 mt-4 sm:mt-0">
                     {/* YouTube icon */}
                     <a
-                        href="https://youtube.com"
+                        href="https://www.youtube.com/@Beattheline"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white transition-colors"
@@ -24,7 +24,7 @@ export default function Footer() {
 
                     {/* Discord icon */}
                     <a
-                        href="https://discord.com"
+                        href="https://discord.gg/RBvpphmxTq"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white transition-colors"

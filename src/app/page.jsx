@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaBasketballBall, FaArrowRight, FaCircle, FaEnvelope, FaInfoCircle, FaHome, FaYoutube, FaDiscord } from 'react-icons/fa';
 import Comments from '@/app/components/features/comments/CommenList';
+import Link from "next/link";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,9 +57,11 @@ export default function Home() {
               Learn More
             </button>
 
-            <button className="bg-[#72D53C] text-white px-6 py-2 rounded-md hover:bg-[#66c038] transition-colors">
-              Get Started
-            </button>
+            <Link href="/subscriptions">
+              <button className="bg-[#72D53C] text-white px-6 py-2 rounded-md hover:bg-[#66c038] transition-colors">
+                Get Started
+              </button>
+            </Link>
           </div>
 
           {/* Social media */}
@@ -77,7 +80,7 @@ export default function Home() {
             </a> */}
             {/* YouTube icon */}
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@Beattheline"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
@@ -87,7 +90,7 @@ export default function Home() {
 
             {/* Discord icon */}
             <a
-              href="https://discord.com"
+              href="https://discord.gg/RBvpphmxTq"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
