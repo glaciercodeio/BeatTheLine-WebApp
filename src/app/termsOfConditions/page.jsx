@@ -6,7 +6,7 @@ export default function TermsOfConditions() {
         <>
             <Navbar initialBackground={true} />
 
-            <section className="privacy text-black bg-white p-6 pt-28">
+            <section className="text-black bg-white p-6 pt-28 text-justify">
 
                 <div className="bg-white p-10 mx-auto w-auto max-w-4xl">
                     <div className="flex justify-center mb-16">
