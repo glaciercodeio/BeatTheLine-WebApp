@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from '@/app/components/ui/Navbar';
 
 const plans = [
     {
@@ -24,6 +25,9 @@ const plans = [
 
 export default function Subscriptions() {
     return (
+        <>
+          <Navbar initialBackground={false} />
+       
         <div
             className="min-h-screen flex flex-col bg-white relative "
             style={{
@@ -75,5 +79,6 @@ export default function Subscriptions() {
                 ))}
             </div>
         </div >
+        </>
     );
 }

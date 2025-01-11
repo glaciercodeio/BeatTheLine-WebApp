@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Navbar() {
+export default function Navbar({ initialBackground = false }) {
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -22,38 +22,41 @@ export default function Navbar() {
         };
     }, []);
 
+    const backgroundClass = initialBackground || isScrolled ? "bg-black" : "bg-transparent";
+
     return (
         <nav
-            className={`flex justify-between items-center px-8 py-4 sm:px-20 fixed top-0 left-0 w-full z-30 transition-colors duration-300 ${isScrolled ? "bg-black" : "bg-transparent"
-                }`}
+            className={`flex justify-between items-center px-8 py-4 sm:px-20 fixed top-0 left-0 w-full z-30 transition-colors duration-300 ${backgroundClass}`}
         >
             <div className="flex items-center gap-4">
-                <Image
-                    src="/BTL-Logo-Horz-Lt-Solid.png"
-                    alt="Website Logo"
-                    width={130}
-                    height={50}
-                />
+                <Link href="/">
+                    <Image
+                        src="/BTL-Logo-Horz-Lt-Solid.png"
+                        alt="Website Logo"
+                        width={130}
+                        height={50}
+                    />
+                </Link>
             </div>
 
             <ul className="hidden sm:flex gap-20 text-lg font-medium">
                 <li>
-                    <Link rel="stylesheet" href="/" className="hover:text-[#72D53C] text-white">
+                    <Link href="/" className="hover:text-[#72D53C] text-white">
                         Home
                     </Link>
                 </li>
                 <li>
-                    <Link rel="stylesheet" href="/subscriptions" className="hover:text-[#72D53C] text-white">
+                    <Link href="/subscriptions" className="hover:text-[#72D53C] text-white">
                         Subscriptions
                     </Link>
                 </li>
                 <li>
-                    <Link rel="stylesheet" href="/" className="hover:text-[#72D53C] text-white">
+                    <Link href="/aboutUs" className="hover:text-[#72D53C] text-white">
                         About
                     </Link>
                 </li>
                 <li>
-                    <Link rel="stylesheet" href="/" className="hover:text-[#72D53C] text-white">
+                    <Link href="/" className="hover:text-[#72D53C] text-white">
                         Contact
                     </Link>
                 </li>
@@ -63,10 +66,10 @@ export default function Navbar() {
                 <button className="px-4 py-2 text-sm font-medium text-white border border-[#333333] rounded hover:bg-[#131313]">
                     Log in
                 </button>
-                <button className="px-4 py-2 text-sm font-medium text-black bg-white  rounded hover:bg-gray-100">
+                <button className="px-4 py-2 text-sm font-medium text-black bg-white rounded hover:bg-gray-100">
                     Sign up
                 </button>
             </div>
-        </nav >
+        </nav>
     );
 }
