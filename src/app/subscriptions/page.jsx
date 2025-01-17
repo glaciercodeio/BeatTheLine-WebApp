@@ -7,12 +7,14 @@ const plans = [
         price: "34.99",
         description: "> 20-30 plays a week",
         features: ["Mainly player props", "Include derivatives main markets (lower limit bets)"],
+        link: "https://www.google.com"
     },
     {
         title: "NCAA Men’s Basketball WEEK PACKAGE ",
         price: "34.99",
         description: "> 20-30 plays a week",
         features: ["Mainly player props", "One main market a day + derivatives main markets"],
+        link: "https://www.google.com"
     },
     {
         title: "NCAA Men’s Football WEEK PACKAGE ",
@@ -20,31 +22,35 @@ const plans = [
         description: "> 10-20 plays a week",
         note: "(VARIES BASED ON SLATE)",
         features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://www.google.com"
     },
     {
         title: "NBA WEEK PACKAGE",
         price: "69.99",
         description: "> 50-75 plays a week",
         features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://www.google.com"
     },
     {
         title: "NHL WEEK PACKAGE",
         price: "29.99",
         description: "> 15-25 plays a week",
         features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://www.google.com"
     },
     {
         title: "WNBA WEEK PACKAGE",
         price: "69.99",
         description: "> 50-75 plays a week",
-        note: "(VARIES BASED ON SLATE)",
         features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://www.google.com"
     },
     {
         title: "MLB WEEK PACKAGE",
         price: "34.99",
         description: "> 30-40 plays a week",
         features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://www.google.com"
     }/*,
     {
         title: "SEASON PACKAGE",
@@ -59,18 +65,22 @@ export default function Subscriptions() {
     return (
         <>
           <Navbar initialBackground={false} />
-       
         <div
             className="min-h-screen flex flex-col bg-white relative "
             style={{
                 background: `radial-gradient(circle at top, rgba(114, 213, 60, 0.12) 0%, rgba(255, 255, 255, 0) 60%)`,
-            }}>
-
-            <h3 className="text-4xl font-bold text-center mt-32 text-ellipsis text-white">
+            }}
+            >
+            {/*
+            <div className="flex items-center justify-center h-14 bg-lime-950 mt-12 translate-y-10">
+                <h1 className="text-5xl font-bold text-center text-ellipsis text-white">
+                    Tier 1
+                </h1>
+            </div>*/}
+            <h2 className="text-4xl font-bold text-center mt-32 text-ellipsis text-white">
                 Choose your plan
-            </h3>
-
-            <div className="flex-grow flex flex-wrap justify-center gap-6 p-6 w-full max-w-6xl mx-auto mt-10 items-start">
+            </h2>
+            <div className="flex-grow flex flex-wrap justify-center gap-6 p-6 w-full max-w-6xl mx-auto mt-8 items-start">
                 {plans.map((plan, index) => (
                     <div
                         key={index}
@@ -103,10 +113,11 @@ export default function Subscriptions() {
                                 </li>
                             ))}
                         </ul>
-
-                        <button className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover:text-white mt-auto">
-                            Select Plan
-                        </button>
+                        <a href={plan.link} target="_blank" rel="noopener noreferrer" className="w-full mt-auto">
+                            <button className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover:text-white">
+                                Select Plan
+                            </button>
+                        </a>
                     </div>
                 ))}
             </div>

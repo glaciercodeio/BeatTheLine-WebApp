@@ -50,7 +50,7 @@ export default function Home() {
 
           <div className="relative z-20 max-w-lg px-4 sm:px-0">
             <h1 className="text-4xl sm:text-7xl font-extrabold tracking-tight mb-4">
-              Welcome to Beat the line
+              Welcome to Beat The Line
             </h1>
             <p className="text-xl sm:text-2xl mb-8">
               A place to make the best bets.
@@ -143,6 +143,28 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Video Section */}
+        <section className="p-12 flex gap-36 bg-[#f1f1f1] text-black">
+          <div className="w-[30%] flex flex-col justify-center items-start">
+            <h1 className="text-4xl font-semibold mb-4">Text goes here.</h1>
+            <p className="text-xl">
+              Explore detailed insights and betting strategies
+              fuled by data.
+            </p>
+          </div>
+
+          <div className="w-[70%] flex justify-center items-center">
+            <iframe
+              className="w-full aspect-video rounded-lg"
+              src="https://www.youtube.com/embed/61JHONRXhjs"
+              title="YouTube video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
 
         {/* Main content */}
         <main className="flex-1 bg-white dark:bg-[#ffffff]">
