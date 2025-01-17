@@ -21,6 +21,38 @@ const plans = [
         note: "(VARIES BASED ON SLATE)",
         features: ["Mainly player props", "Include derivatives main markets"],
     },
+    {
+        title: "NBA WEEK PACKAGE",
+        price: "69.99",
+        description: "> 50-75 plays a week",
+        features: ["Mainly player props", "Include derivatives main markets"],
+    },
+    {
+        title: "NHL WEEK PACKAGE",
+        price: "29.99",
+        description: "> 15-25 plays a week",
+        features: ["Mainly player props", "Include derivatives main markets"],
+    },
+    {
+        title: "WNBA WEEK PACKAGE",
+        price: "69.99",
+        description: "> 50-75 plays a week",
+        note: "(VARIES BASED ON SLATE)",
+        features: ["Mainly player props", "Include derivatives main markets"],
+    },
+    {
+        title: "MLB WEEK PACKAGE",
+        price: "34.99",
+        description: "> 30-40 plays a week",
+        features: ["Mainly player props", "Include derivatives main markets"],
+    }/*,
+    {
+        title: "SEASON PACKAGE",
+        price: "TBD",
+        description: "o	Create when we have the training course created",
+        note: "(VARIES BASED ON SLATE)",
+        features: ["Mainly player props", "Include derivatives main markets"],
+    },*/
 ];
 
 export default function Subscriptions() {
