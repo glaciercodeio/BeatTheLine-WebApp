@@ -125,9 +125,6 @@ export default function Subscriptions() {
                             </button>
                         </a>
                     </div>
-              <button className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover mt-auto">
-                Select Plan
-              </button>
             </div>
           ))}
         </div>
