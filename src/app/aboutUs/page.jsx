@@ -3,7 +3,6 @@ import Navbar from "@/app/components/ui/Navbar";
 
 export default function AboutUs() {
   return (
-    <>
       <Navbar initialBackground={false} />
 
       <div
@@ -120,6 +119,5 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-    </>
   );
 }
