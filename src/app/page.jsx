@@ -150,7 +150,7 @@ export default function Home() {
             <h1 className="text-4xl font-semibold mb-4">Text goes here.</h1>
             <p className="text-xl">
               Explore detailed insights and betting strategies
-              fuled by data.
+              fuled by data!
             </p>
           </div>
 
