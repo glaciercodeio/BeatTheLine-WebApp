@@ -58,7 +58,7 @@ const plans = [
         description: "o	Create when we have the training course created",
         note: "(VARIES BASED ON SLATE)",
         features: ["Mainly player props", "Include derivatives main markets"],
-    },*/,
+    },Test*/,
 ];
 
 export default function Subscriptions() {
