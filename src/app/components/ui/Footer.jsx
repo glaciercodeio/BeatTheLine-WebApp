@@ -52,7 +52,7 @@ export default function Footer() {
         </div>
 
         <p className="text-sm text-white mt-6 sm:mt-12 text-center">
-          &copy; {new Date().getFullYear()} Beat the line. All rights reserved.
+          &copy; {new Date().getFullYear()} Beat The Line. All rights reserved.
         </p>
       </div>
     </footer>
