@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "@/app/components/ui/Navbar";
+import Navbar from '@/app/components/ui/Navbar';
 
 const plans = [
     {
@@ -93,24 +93,18 @@ export default function Subscriptions() {
                             </h3>
                         </div>
 
-              <div className="mb-4">
-                <div className="flex items-end gap-2">
-                  <p className="text-5xl font-medium text-left">
-                    <span className="text-2xl font-medium text-[#9e9e9e]">
-                      $
-                    </span>
-                    {plan.price}
-                  </p>
+                        <div className="mb-4">
+                            <div className="flex items-end gap-2">
+                                <p className="text-5xl font-medium text-left text-white">
+                                    <span className="text-2xl font-medium text-[#9e9e9e]">$</span>
+                                    {plan.price}
+                                </p>
 
-                  <p className="text-sm font-medium text-[#9e9e9e]">
-                    {plan.description}
-                  </p>
-                </div>
+                                <p className="text-sm font-medium text-[#9e9e9e]">{plan.description}</p>
+                            </div>
 
-                <p className="text-sm mt-2 font-medium text-[#9e9e9e]">
-                  {plan.note}
-                </p>
-              </div>
+                            <p className="text-sm mt-2 font-medium text-[#9e9e9e]">{plan.note}</p>
+                        </div>
 
                         <ul className="mb-6 space-y-2 text-sm text-white overflow-hidden">
                             {plan.features.map((feature, i) => (
@@ -123,12 +117,11 @@ export default function Subscriptions() {
                             <button className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover:text-white">
                                 Select Plan
                             </button>
-                        </a>
+                            </a>
                     </div>
+                ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
+        </div >
+        </>
+    );
 }
