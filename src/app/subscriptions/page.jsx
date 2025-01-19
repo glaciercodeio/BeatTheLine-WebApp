@@ -7,7 +7,7 @@ const plans = [
         price: "34.99",
         description: "> 20-30 plays a week",
         features: ["Mainly player props", "Include derivatives main markets (lower limit bets)"],
-        link: "https://www.google.com"
+        link: "https://www.google.ca"
     },
     {
         title: "NCAA Men’s Basketball WEEK PACKAGE ",
