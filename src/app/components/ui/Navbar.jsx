@@ -70,19 +70,23 @@ export default function Navbar({ initialBackground = false }) {
           </Link>
         </li>
         <li>
-          <Link href="/" className="hover:text-[#72D53C] text-white">
+          <Link href="/contactUs" className="hover:text-[#72D53C] text-white">
             Contact
           </Link>
         </li>
       </ul>
 
       <div className="flex items-center gap-4">
-        <button className="px-4 py-2 text-sm font-medium text-white border border-[#333333] rounded hover:bg-[#131313]">
-          Log in
-        </button>
-        <button className="px-4 py-2 text-sm font-medium text-black bg-white rounded hover:bg-gray-100">
-          Sign up
-        </button>
+        <Link href="/logIn">
+          <button className="px-4 py-2 text-sm font-medium text-white border border-[#333333] rounded hover:bg-[#131313]">
+              Log in
+          </button>
+        </Link>
+        <Link href="/signUp">
+          <button className="px-4 py-2 text-sm font-medium text-black bg-white rounded hover:bg-gray-100">
+              Sign up
+          </button>
+        </Link>
       </div>
     </nav>
   );
