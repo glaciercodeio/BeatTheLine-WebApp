@@ -17,18 +17,15 @@ export default function SignUp() {
     const [error, setError] = useState('');
     const router = useRouter();
 
-    // Handle form input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         setError('');
     };
 
-    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validation checks
         if (formData.password !== formData.confirmPassword) {
             setError('Passwords do not match');
             return;
@@ -40,16 +37,13 @@ export default function SignUp() {
         }
 
         console.log('Form submitted:', formData);
-        
-        // Here you can implement API call to store user data
-        router.push('/welcome');  // Redirect to welcome page after successful sign up
+        router.push('/welcome');
     };
 
     return (
         <>
             <Navbar initialBackground={false} />
-            <div className="min-h-screen flex flex-col items-center justify-center bg-[#111] relative text-white">
-                {/* Background and Overlay */}
+            <div className="min-h-screen flex flex-col items-center justify-center bg-[#111] relative text-white pb-20">
                 <div className="absolute inset-0">
                     <Image
                         src="/BTL-Graphics-3.png"
@@ -59,10 +53,10 @@ export default function SignUp() {
                         objectPosition="center"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
+                    <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-black to-transparent z-10"></div>
                 </div>
 
-                <div className="relative z-10 max-w-lg w-full bg-black/80 p-10 rounded-lg shadow-lg border border-[#E2E7EA] mt-32">
+                <div className="relative z-20 max-w-lg w-full bg-black/80 p-10 rounded-lg shadow-lg border border-[#E2E7EA] mt-32">
                     <h2 className="text-4xl font-extrabold text-center mb-4 text-[#72D53C]">
                         Create Your Account
                     </h2>

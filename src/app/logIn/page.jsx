@@ -21,7 +21,6 @@ export default function Login() {
         <>
             <Navbar initialBackground={false} />
             <div className="min-h-screen flex flex-col items-center justify-center bg-[#111] relative text-white">
-                {/* Background Gradient */}
                 <div className="absolute inset-0">
                     <Image
                         src="/BTL-Graphics-3.png"
@@ -31,7 +30,7 @@ export default function Login() {
                         objectPosition="center"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
+                    <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-black to-transparent z-10"></div>
                 </div>
 
                 <div className="relative z-10 max-w-lg w-full bg-black/80 p-10 rounded-lg shadow-lg border border-[#E2E7EA]">
