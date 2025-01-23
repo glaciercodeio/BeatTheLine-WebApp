@@ -22,36 +22,35 @@ export default function AboutUs() {
               in data-driven betting.
             </p>
             <p>
-              We started as a few guys who were interested in statistics and sports.
-              We took these two passions and discovered opportunities in sports betting markets which could generate a massive return on investment.
-              We built the company from this premise and to this day we are enjoying{" "}
               <span className="font-semibold text-xl text-[#72D53C]">
-              incredible results{" "}
-              </span>
-              for ourselves and our clients. 
+                Data Driven Betting.
+              </span>{" "}
+              Based in the U.S., we combine cutting-edge data analytics,
+              advanced algorithms, and mathematical strategies to help our
+              partners outsmart the markets.{" "}
             </p>
             <br />
-            With{" "}
-            <span className="font-semibold text-xl text-[#72D53C]">
-              Beat The Line{" "}
-              </span>
-            you will get access to sports picks that 
-            are passed through intensive statistical scrutiny to ensure the highest quality product is delivered.{" "}
             <p>
-            <br />
-            We pride ourselves on customer service and providing real value to our clients as they pursue{" "}
-            <span className="font-semibold text-xl text-[#72D53C]">
-              profitable sports betting
-            </span>
-              . We cut out all of the noise and provide the highest value bets available, 
-              taking out all of the work of hunting them down for yourself. 
+              Our approach is built on more than just numbers—we believe in
+              building lasting relationships with the people who trust us.{" "}
+            </p>
+            <p>
+              At Beat the Line, we’re not just about results; we’re about
+              empowering our partners with insights, strategies, and support to
               help them succeed.{" "}
-              <p>
-              <br />
               <span className="font-semibold text-xl text-[#72D53C]">
-                Let’s make some money together!
-              </span> 
-              </p>
+                Beating the Market.
+              </span>
+            </p>
+            <br />
+            <p>
+              With a relentless drive for innovation and a commitment to staying
+              one step ahead, we focus on{" "}
+              <span className="font-semibold text-xl text-[#72D53C]">
+                Identifying Edges
+              </span>{" "}
+              to make smarter betting accessible and rewarding for everyone.
+              Together, we can beat the line and achieve greatness.
             </p>
           </div>
                     <div className="">
