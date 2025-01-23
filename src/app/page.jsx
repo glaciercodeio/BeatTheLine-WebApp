@@ -49,12 +49,15 @@ export default function Home() {
           </div>
 
           <div className="relative z-20 max-w-lg px-4 sm:px-0">
-            <h1 className="text-4xl sm:text-7xl font-extrabold tracking-tight mb-4">
+            <h1 className="text-4xl sm:text-7xl font-extrabold tracking-tight mb-4 [text-shadow:_2px_2px_0_rgb(0_0_0)] [webkit-text-stroke:2px_black]">
               Welcome to Beat The Line
             </h1>
-            <p className="text-xl sm:text-2xl mb-8">
-              A place to make the best bets.
-            </p>
+              {/*<p className="bg-[#424040] text-white border-black text-2xl px-6 py-2 rounded-md transition-colors">*/}
+              <p className="text-white text-2xl [text-shadow:_2px_2px_0_rgb(0_0_0)] [webkit-text-stroke:1px_black]">
+                We find the edge so you don’t have to.
+              </p>
+
+              <br />
 
             {/* Buttons container */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -84,7 +87,7 @@ export default function Home() {
               <FaInstagram className="text-white hover:text-gray-400 text-xl" />
             </a> */}
               {/* YouTube icon */}
-              <a
+              {/*<a
                 href="https://www.youtube.com/@Beattheline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -92,8 +95,9 @@ export default function Home() {
               >
                 <FaYoutube className="text-white hover:text-gray-400 text-xl" />
               </a>
-
+               */} 
               {/* Discord icon */}
+              {/*
               <a
                 href="https://discord.gg/RBvpphmxTq"
                 target="_blank"
@@ -101,12 +105,12 @@ export default function Home() {
                 className="hover:text-white transition-colors"
               >
                 <FaDiscord className="text-white hover:text-gray-400 text-xl" />
-              </a>
+              </a>*/}
             </div>
           </div>
         </header>
 
-        <div className="bg-[#111] py-4">
+        {/*<div className="bg-[#111] py-4">
           <div className="overflow-hidden w-full">
             <div className="flex animate-marquee items-center gap-10">
               <span className="text-3xl font-normal text-white tracking-widest">
@@ -142,28 +146,62 @@ export default function Home() {
               </span>
             </div>
           </div>
-        </div>
+            </div>*/}
 
         {/* Video Section */}
         <section className="p-12 flex gap-36 bg-[#f1f1f1] text-black">
           <div className="w-[30%] flex flex-col justify-center items-start">
-            <h1 className="text-4xl font-semibold mb-4">Text goes here.</h1>
-            <p className="text-xl">
-              Explore detailed insights and betting strategies
-              fuled by data!
+           <h1 className="text-4xl font-semibold mb-4">Follow Us!</h1>
+            <p className="text-xl mb-4">
+            Explore our social media content for additional resources as well as tips, tricks, and market analysis directly from the BTL founders.
             </p>
+            {/* Social media */}
+            <div className="flex justify-center sm:justify-start gap-6 text-2xl text-white mt-16">
+              {/* Facebook icon */}
+              {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <FaFacebookF className="text-white hover:text-gray-400 text-xl" />
+            </a> */}
+              {/* Twitter icon */}
+              {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <FaTwitter className="text-white hover:text-gray-400 text-xl" />
+            </a> */}
+              {/* Instagram icon */}
+              {/* <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <FaInstagram className="text-white hover:text-gray-400 text-xl" />
+            </a> */}
+              {/* YouTube icon */}
+              <a
+                href="https://www.youtube.com/@Beattheline"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                <FaYoutube className="text-black hover:text-gray-400 text-6xl" />
+              </a>
+
+              {/* Discord icon */}
+              <a
+                href="https://discord.gg/RBvpphmxTq"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                <FaDiscord className="text-black hover:text-gray-400 text-6xl" />
+              </a>
+            </div>
           </div>
 
-          <div className="w-[70%] flex justify-center items-center">
+          <div className="w-[55%] flex justify-center items-center">
             <iframe
               className="w-full aspect-video rounded-lg"
-              src="https://www.youtube.com/embed/61JHONRXhjs"
+              src="https://www.youtube.com/embed/W-Kg4rsmQ-s?si=2rzkBvL5koUoc7Tr&amp;start=60" 
               title="YouTube video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>
+          
         </section>
 
         {/* Main content */}
