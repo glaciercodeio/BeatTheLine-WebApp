@@ -44,8 +44,7 @@ export default function AboutUs() {
               profitable sports betting
             </span>
               . We cut out all of the noise and provide the highest value bets available, 
-              taking out all of the work of hunting them down for yourself. 
-              help them succeed.{" "}
+              taking out all of the work of hunting them down for yourself.{" "}
               <p>
               <br />
               <span className="font-semibold text-xl text-[#72D53C]">
