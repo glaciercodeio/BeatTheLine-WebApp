@@ -16,7 +16,7 @@ export default function AboutUs() {
                     About Us
                 </h3>
         <div className="flex flex-col max-w-[1200px] mx-auto gap-10 ">
-          <div className="w-[70%] mx-auto mb-14 text-justify">
+          <div className="w-[70%] mx-auto mb-14">
             <p className="text-3xl font-medium mb-5">
               Welcome to Beat the Line, where passion for sports meets precision
               in data-driven betting.
