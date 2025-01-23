@@ -194,7 +194,7 @@ export default function Home() {
           <div className="w-[55%] flex justify-center items-center">
             <iframe
               className="w-full aspect-video rounded-lg"
-              src="https://www.youtube.com/embed/W-Kg4rsmQ-s?si=2rzkBvL5koUoc7Tr&amp;start=60" 
+              src="https://www.youtube.com/embed/-9lP95Qo-I0?si=2S3o-0Q-b_9BQB2k" 
               title="YouTube video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
