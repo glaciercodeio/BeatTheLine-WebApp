@@ -17,7 +17,9 @@ export async function POST(req) {
             from: process.env.VERIFIED_SENDER_EMAIL,  // Your verified sender email
             replyTo: email,  // This ensures replies go to the user
             subject: 'New Inquiry from Contact Us Form',
-            text: `You received a new message from: ${email}\n\nMessage: ${message}`,
+            text: `You received a new message from: ${email}\n\n
+            -----------------------------------------------------------------------------
+            ${message}`,
         });
 
         return NextResponse.json({ success: true, message: 'Emails sent successfully' });
