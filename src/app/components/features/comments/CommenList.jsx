@@ -18,7 +18,7 @@ const Comments = () => {
     const allComments = [
         {
             id: 1,
-            user: "Jacob W.",
+            user: "Jacob L.",
             text: "BTL makes high-volume, plus-EV sports betting accessible for busy professionals who don’t have the time or resources to find their own bets. With their system, it’s truly plug-and-play, and the results speak for themselves.",
             date: "2025-01-23",
         },
