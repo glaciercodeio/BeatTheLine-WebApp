@@ -15,7 +15,7 @@ export async function POST(req) {
         await sendgrid.send({
             to: 'jose@glaciercode.io',  // Your business email
             from: process.env.VERIFIED_SENDER_EMAIL,  // Your verified sender email
-            replyTo: email,  // This ensures replies go to the user
+            replyTo: email,  // This ensures replies go to the user!!
             subject: 'New Inquiry from Contact Us Form',
             text: `You received a new message from: ${email}\n\n
             -----------------------------------------------------------------------------
