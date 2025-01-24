@@ -50,7 +50,7 @@ export default function ContactUs() {
                     background: `radial-gradient(circle at top, rgba(114, 213, 60, 0.12) 0%, rgba(255, 255, 255, 0) 60%)`,
                 }}
             >
-                <h3 className="text-4xl mb-20 font-bold text-center mt-32 text-white">
+                <h3 className="text-4xl mb-20 font-bold text-center mt-32">
                     Contact Us
                 </h3>
                 <div className="flex flex-col max-w-[1200px] mx-auto gap-10">
