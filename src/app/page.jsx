@@ -213,7 +213,6 @@ export default function Home() {
                 <div className="text-[#fff] text-3xl bg-[#72D53C] w-[60px] h-[60px] rounded-full flex justify-center items-center">
                   <FaChartLine />
                 </div>
-
                 <h1 className="text-left text-4xl font-semibold mt-7 text-black mb-7">Profit</h1>
               </div>
 
