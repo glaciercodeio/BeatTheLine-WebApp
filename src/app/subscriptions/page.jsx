@@ -2,56 +2,56 @@ import React from "react";
 import Navbar from "@/app/components/ui/Navbar";
 
 const plans = [
-  {
-    title: "NFL WEEK PACKAGE ",
-    price: "34.99",
-    description: "> 20-30 plays a week",
-    features: [
-      "Mainly player props",
-      "Include derivatives main markets (lower limit bets)",
-    ],
-  },
-  {
-    title: "NCAA Men’s Basketball WEEK PACKAGE ",
-    price: "34.99",
-    description: "> 20-30 plays a week",
-    features: [
-      "Mainly player props",
-      "One main market a day + derivatives main markets",
-    ],
-  },
-  {
-    title: "NCAA Men’s Football WEEK PACKAGE ",
-    price: "24.99",
-    description: "> 10-20 plays a week",
-    note: "(VARIES BASED ON SLATE)",
-    features: ["Mainly player props", "Include derivatives main markets"],
-  },
-  {
-    title: "NBA WEEK PACKAGE",
-    price: "69.99",
-    description: "> 50-75 plays a week",
-    features: ["Mainly player props", "Include derivatives main markets"],
-  },
-  {
-    title: "NHL WEEK PACKAGE",
-    price: "29.99",
-    description: "> 15-25 plays a week",
-    features: ["Mainly player props", "Include derivatives main markets"],
-  },
-  {
-    title: "WNBA WEEK PACKAGE",
-    price: "69.99",
-    description: "> 50-75 plays a week",
-    note: "(VARIES BASED ON SLATE)",
-    features: ["Mainly player props", "Include derivatives main markets"],
-  },
-  {
-    title: "MLB WEEK PACKAGE",
-    price: "34.99",
-    description: "> 30-40 plays a week",
-    features: ["Mainly player props", "Include derivatives main markets"],
-  } /*,
+    {
+        title: "NFL WEEK PACKAGE ",
+        price: "34.99",
+        description: "> 20-30 plays a week",
+        features: ["Mainly player props", "Include derivatives main markets (lower limit bets)"],
+        link: "https://whop.com/beattheline-nfl/"
+    },
+    {
+        title: "NCAA Men’s Basketball WEEK PACKAGE ",
+        price: "34.99",
+        description: "> 20-30 plays a week",
+        features: ["Mainly player props", "One main market a day + derivatives main markets"],
+        link: "https://whop.com/beattheline-ncaab/"
+    },
+    {
+        title: "NCAA Men’s Football WEEK PACKAGE ",
+        price: "24.99",
+        description: "> 10-20 plays a week",
+        note: "(VARIES BASED ON SLATE)",
+        features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://whop.com/beattheline-ncaaf/"
+    },
+    {
+        title: "NBA WEEK PACKAGE",
+        price: "69.99",
+        description: "> 50-75 plays a week",
+        features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://whop.com/beattheline-nba/"
+    },
+    {
+        title: "NHL WEEK PACKAGE",
+        price: "29.99",
+        description: "> 15-25 plays a week",
+        features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://whop.com/beattheline-nhl/"
+    },
+    {
+        title: "WNBA WEEK PACKAGE",
+        price: "69.99",
+        description: "> 50-75 plays a week",
+        features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://whop.com/beattheline-wnba/"
+    },
+    {
+        title: "MLB WEEK PACKAGE",
+        price: "34.99",
+        description: "> 30-40 plays a week",
+        features: ["Mainly player props", "Include derivatives main markets"],
+        link: "https://whop.com/beattheline-mlb/ "
+    }/*,
     {
         title: "SEASON PACKAGE",
         price: "TBD",
