@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const calculateFontSize = (text) => {
-    const baseSize = 16;  // Base font size in pixels
-    const maxLength = 1000; // Define max length to determine scaling
+  const baseSize = 16; // Base font size in pixels
+  const maxLength = 1000; // Define max length to determine scaling
 
-    if (text.length > maxLength) {
-        return `${baseSize - 4}px`; // Reduce font size for longer text
-    } else if (text.length > 200) {
-        return `${baseSize - 2}px`;
-    } else {
-        return `${baseSize}px`; // Default size
-    }
+  if (text.length > maxLength) {
+    return `${baseSize - 4}px`; // Reduce font size for longer text
+  } else if (text.length > 200) {
+    return `${baseSize - 2}px`;
+  } else {
+    return `${baseSize}px`; // Default size
+  }
 };
 
 const Comments = () => {
@@ -89,91 +89,114 @@ const Comments = () => {
             date: "2025-01-23",
         },
     ];
-
-    const colors = [
-        "bg-[#72D53C]",
-        /*  "bg-[#ef4444]",
+  const colors = [
+    "bg-[#72D53C]",
+    /*  "bg-[#ef4444]",
          "bg-[#10b981]",
          "bg-[#0ea5e9]",
          "bg-[#a855f7]",
          "bg-[#ec4899]",
          "bg-[#eab308]",
          "bg-[#14b8a6]", */
-    ];
+  ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
 
-    const goToNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % allComments.length);
-    };
+  useEffect(() => {
+    // Access window inside useEffect
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth);
+    }
+  }, []);
 
-    const goToPrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + allComments.length) % allComments.length);
-    };
+  const translateXValue = currentIndex * (windowWidth < 640 ? 320 : 632);
 
-    return (
-        <div className="bg-[#f1f1f1] py-14 pl-12 flex items-center flex-col lg:flex-row">
-            {/* Text container */}
-            <div className="w-1/3 flex flex-col justify-between h-full">
-                {/* Text */}
-                <div className="text-[#000000] text-4xl font-semibold">
-                    From Data <br />
-                    to<span className="text-[#72D53C] font-bold"> Life-Changing</span> <br /> Results.
-                </div>
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % allComments.length);
+  };
 
-                {/* Buttons */}
-                <div className="flex justify-start space-x-4 mt-6">
-                    <button
-                        onClick={goToPrev}
-                        className="bg-black text-white p-3 rounded-full hover:bg-[#72D53C] transition-all"
-                    >
-                        <FaArrowLeft size={24} />
-                    </button>
-                    <button
-                        onClick={goToNext}
-                        className="bg-black text-white p-3 rounded-full hover:bg-[#72D53C] transition-all"
-                    >
-                        <FaArrowRight size={24} />
-                    </button>
-                </div>
-            </div>
-
-            {/* Cards container */}
-            <div className="relative w-2/3 overflow-hidden">
-                <div
-                    className="flex flex-nowrap space-x-8 transition-transform duration-500 ease-in-out"
-                    style={{
-                        transform: `translateX(-${currentIndex * 632}px)`,
-                        width: `${allComments.length * 632}px`,
-                    }}
-                >
-                    {allComments.map((comment, index) => (
-                        <div
-                            key={comment.id}
-                            className="rounded-md bg-[#ffffff] text-white py-8 px-8 flex flex-col justify-between h-72 w-[600px] shrink-0"
-                        >
-                            {/* User info */}
-                            <div className="flex items-center mb-4">
-                                <div
-                                    className={`${colors[index % colors.length]} text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xl mr-3`}
-                                >
-                                    {comment.user.charAt(0).toUpperCase()}
-                                </div>
-                                <div className="font-bold text-md text-black">{comment.user}</div>
-                            </div>
-
-                            {/* Comments */}
-                            <p className="text-2xl font-regular mb-4 text-black text-xs"
-                            style={{fontSize: calculateFontSize(comment.text),}}>{comment.text}</p>
-
-                            {/* Date */}
-                            <div className="text-sm text-[#727272]">{comment.date}</div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+  const goToPrev = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + allComments.length) % allComments.length
     );
+  };
+
+  return (
+    <div className="bg-[#f1f1f1] py-14 px-4 sm:px-8 lg:pl-12 flex flex-col lg:flex-row items-center">
+      {/* Text container */}
+      <div className="w-full lg:w-1/3 flex flex-col justify-between h-full mb-8 lg:mb-0">
+        {/* Text */}
+        <div className="text-[#000000] text-2xl sm:text-3xl lg:text-4xl font-semibold text-center lg:text-left">
+          From Data <br />
+          to<span className="text-[#72D53C] font-bold">
+            {" "}
+            Life-Changing
+          </span>{" "}
+          <br /> Results.
+        </div>
+
+        {/* Buttons */}
+        <div className="flex justify-center lg:justify-start space-x-4 mt-6">
+          <button
+            onClick={goToPrev}
+            className="bg-black text-white p-3 rounded-full hover:bg-[#72D53C] transition-all"
+          >
+            <FaArrowLeft size={24} />
+          </button>
+          <button
+            onClick={goToNext}
+            className="bg-black text-white p-3 rounded-full hover:bg-[#72D53C] transition-all"
+          >
+            <FaArrowRight size={24} />
+          </button>
+        </div>
+      </div>
+
+      {/* Cards container */}
+      <div className="relative w-full lg:w-2/3 w-2/3 overflow-hidden justify-center mx-auto">
+        <div
+          className="flex flex-nowrap space-x-8 transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${translateXValue}px)`,
+            width: `${allComments.length * (windowWidth < 640 ? 320 : 632)}px`,
+          }}
+        >
+          {allComments.map((comment, index) => (
+            <div
+              key={comment.id}
+              className="rounded-md bg-[#ffffff] text-white py-6 px-6 sm:py-8 sm:px-8 flex flex-col justify-between h-72 w-[300px] sm:w-[400px] lg:w-[600px] shrink-0"
+            >
+              {/* User info */}
+              <div className="flex items-center mb-4">
+                <div
+                  className={`${
+                    colors[index % colors.length]
+                  } text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xl mr-3`}
+                >
+                  {comment.user.charAt(0).toUpperCase()}
+                </div>
+                <div className="font-bold text-md text-black">
+                  {comment.user}
+                </div>
+              </div>
+
+              {/* Comments */}
+              <p
+                className="text-2xl font-regular mb-4 text-black text-xs"
+                style={{ fontSize: calculateFontSize(comment.text) }}
+              >
+                {comment.text}
+              </p>
+
+              {/* Date */}
+              <div className="text-sm text-[#727272]">{comment.date}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Comments;
