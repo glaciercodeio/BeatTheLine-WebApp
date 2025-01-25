@@ -13,13 +13,17 @@ export async function POST(req) {
 
         // Send email to your business with reply-to set to the user's email
         await sendgrid.send({
-            to: 'jwilson@beattheline.org',  // Your business email
+            to: process.env.BUSINESS_EMAIL,  // Your business email
             from: process.env.VERIFIED_SENDER_EMAIL,  // Your verified sender email
-            replyTo: email,  // This ensures replies go to the user!!
-            subject: 'New Inquiry from Contact Us Form',
-            text: `You received a new message from: ${email}\n\n
-            -----------------------------------------------------------------------------
-            ${message}`,
+            replyTo: email,  // This ensures replies go to the user
+            subject: 'New Inquiry from Website Contact Us',
+            text: 
+`
+You received a new message from: ${email}
+\n
+-----------------------------------------------------------------------------
+${message}
+`,
         });
 
         return NextResponse.json({ success: true, message: 'Emails sent successfully' });

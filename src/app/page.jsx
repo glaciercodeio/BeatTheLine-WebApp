@@ -232,9 +232,7 @@ export default function Home() {
                 <div className="bg-[#72D53C] text-white text-2xl sm:text-3xl w-16 h-16 rounded-full flex items-center justify-center">
                   <FaChartLine />
                 </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-                  Profit
-                </h2>
+                <h1 className="text-left text-4xl font-semibold mt-7 text-black mb-7">Profit</h1>
               </div>
 
               <p className="text-lg sm:text-xl lg:text-2xl mb-10 text-[#000000]">
