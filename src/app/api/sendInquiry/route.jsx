@@ -13,7 +13,7 @@ export async function POST(req) {
 
         // Send email to your business with reply-to set to the user's email
         await sendgrid.send({
-            to: 'jose@glaciercode.io',  // Your business email
+            to: 'jwilson@beattheline.org',  // Your business email
             from: process.env.VERIFIED_SENDER_EMAIL,  // Your verified sender email
             replyTo: email,  // This ensures replies go to the user!!
             subject: 'New Inquiry from Contact Us Form',

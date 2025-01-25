@@ -83,8 +83,8 @@ export default function Privacypolicy() {
 
                     <h2 className="text-xl font-semibold mt-4">Unsubscribing</h2>
                     <p>
-                        If at any time you would like to unsubscribe from receiving future emails, you can email us at
-                        <a href="mailto:support@establishtherun.com" className="text-blue-500 underline">support@establishtherun.com</a> and we will promptly remove you from all correspondence.
+                        If at any time you would like to unsubscribe from receiving future emails, you can email us at{" "}
+                        <a href="mailto:admin@beattheline.org" className="text-blue-500 underline">admin@beattheline.org</a> and we will promptly remove you from all correspondence.
                     </p>
 
                     <h2 className="text-xl font-semibold mt-4">Data Breach</h2>
@@ -98,10 +98,7 @@ export default function Privacypolicy() {
                     </p>
                     <address>
                         Beat The Line, LLC<br />
-                        1425 E Desert Cove Ave, Unit 6<br />
-                        Phoenix, AZ 85020<br />
-                        United States<br />
-                        <a href="mailto:support@establishtherun.com" className="text-blue-500 underline">support@establishtherun.com</a>
+                        <a href="mailto:admin@beattheline.org" className="text-blue-500 underline">admin@beattheline.org</a>
                     </address>
                 </div>
             </section>
