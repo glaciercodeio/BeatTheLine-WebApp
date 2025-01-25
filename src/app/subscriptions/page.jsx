@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "@/app/components/ui/Navbar";
+export const dynamic = "force-dynamic";
 
 const plans = [
     {
@@ -7,7 +8,7 @@ const plans = [
         price: "34.99",
         description: "> 20-30 plays a week",
         features: ["Mainly player props", "Include derivatives main markets (lower limit bets)"],
-        link: "https://whop.com/beattheline-nfl/"
+        link: "https://www.whop.com/beattheline-nfl/"
     },
     {
         title: "NCAA Men’s Basketball WEEK PACKAGE ",
@@ -121,9 +122,16 @@ export default function Subscriptions() {
                 ))}
               </ul>
 
-              <button className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover mt-auto">
-                Select Plan
-              </button>
+              <a
+                href={plan.link.trim()} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full mt-auto"
+              >
+                <button className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover">
+                  Select Plan
+                </button>
+              </a>
             </div>
           ))}
         </div>
