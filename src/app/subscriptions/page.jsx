@@ -7,14 +7,14 @@ const plans = [
         price: "34.99",
         description: "> 20-30 plays a week",
         features: ["Mainly player props", "Include derivatives main markets (lower limit bets)"],
-        link: "https://www.google.ca"
+        link: "https://whop.com/beattheline-nfl/"
     },
     {
         title: "NCAA Men’s Basketball WEEK PACKAGE ",
         price: "34.99",
         description: "> 20-30 plays a week",
         features: ["Mainly player props", "One main market a day + derivatives main markets"],
-        link: "https://www.google.com"
+        link: "https://whop.com/beattheline-ncaab/"
     },
     {
         title: "NCAA Men’s Football WEEK PACKAGE ",
@@ -22,35 +22,35 @@ const plans = [
         description: "> 10-20 plays a week",
         note: "(VARIES BASED ON SLATE)",
         features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://www.google.com"
+        link: "https://whop.com/beattheline-ncaaf/"
     },
     {
         title: "NBA WEEK PACKAGE",
         price: "69.99",
         description: "> 50-75 plays a week",
         features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://www.google.com"
+        link: "https://whop.com/beattheline-nba/"
     },
     {
         title: "NHL WEEK PACKAGE",
         price: "29.99",
         description: "> 15-25 plays a week",
         features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://www.google.com"
+        link: "https://whop.com/beattheline-nhl/"
     },
     {
         title: "WNBA WEEK PACKAGE",
         price: "69.99",
         description: "> 50-75 plays a week",
         features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://www.google.com"
+        link: "https://whop.com/beattheline-wnba/"
     },
     {
         title: "MLB WEEK PACKAGE",
         price: "34.99",
         description: "> 30-40 plays a week",
         features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://www.google.com"
+        link: "https://whop.com/beattheline-mlb/ "
     }/*,
     {
         title: "SEASON PACKAGE",
