@@ -22,8 +22,8 @@ export default function TermsOfConditions() {
 
                     <h2 className="text-xl font-semibold mt-4">1.	Acceptance of Terms</h2>
                     By accessing or using the Service, you signify that you have read, understood, and agree to be bound by this Terms of Service Agreement (“Agreement”) and to the collection and use of your information as set forth in the Beat The Line, LLC Privacy Policy (
-
-                    ) , whether or not you are a registered or paid user of our Service.  This Agreement applies to all visitors, users, and others who access the Service (“Users”). Please read the entire agreement before using our Service. Beat The Line, LLC reserves the right to change, modify, add or remove portions of these Terms of Use, at any time. Please refer to {" "}
+                    <a href="https://www.establishtherun.com/privacy" className="text-blue-500 underline">https://www.establishtherun.com/privacy</a>
+                    ), whether or not you are a registered or paid user of our Service.  This Agreement applies to all visitors, users, and others who access the Service (“Users”). Please read the entire agreement before using our Service. Beat The Line, LLC reserves the right to change, modify, add or remove portions of these Terms of Use, at any time. Please refer to {" "}
                     <a href="https://www.establishtherun.com/terms" className="text-blue-500 underline">https://www.establishtherun.com/terms</a>
                     {" "}to view the current Agreement.
 
@@ -39,7 +39,7 @@ export default function TermsOfConditions() {
                     
                     <h2 className="text-xl font-semibold mt-4">5.	Privacy</h2>
                     
-                    You understand that by using the Services you consent to the collection, use and disclosure of your personally identifiable information and aggregate data as set forth in our Privacy Policy (<a href="http://www.establishtherun.com/privacy" className="text-blue-500 underline">http://www.establishtherun.com/privacy</a>) , and to have your personally identifiable information collected, used, transferred to and processed in the United States.
+                    You understand that by using the Services you consent to the collection, use and disclosure of your personally identifiable information and aggregate data as set forth in our Privacy Policy (<a href="http://www.establishtherun.com/privacy" className="text-blue-500 underline">http://www.establishtherun.com/privacy</a>), and to have your personally identifiable information collected, used, transferred to and processed in the United States.
                     <h2 className="text-xl font-semibold mt-4">6.	Security</h2>
                     When completing the Service’s registration process, you will disclose an email address and select a password. You are responsible for maintaining the confidentiality of the password and account, and are fully responsible for all activities that occur under your password or account. You agree to immediately notify Beat The Line of any unauthorized use of your password or account or any other breach of security, and to ensure that you exit from your account at the end of each session. Beat The Line cannot and will not be liable for any loss or damage arising from your failure to comply with this Section.
                     Beat The Line, LLC cares about the integrity and security of your personal information.  However, we cannot guarantee that unauthorized third parties will never be able to defeat our security measures or use your personal information for improper purposes.  You acknowledge that you provide your personal information at your own risk.
