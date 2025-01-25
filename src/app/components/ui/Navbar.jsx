@@ -145,7 +145,8 @@ export default function Navbar({ initialBackground = false }) {
         )}
       </div>
 
-      {/* Desktop Buttons */}
+      {/* Desktop Buttons
+
       <div className="hidden sm:flex items-center gap-4">
         <Link href="/logIn">
           <button className="px-4 py-2 text-sm font-medium text-white border border-[#333333] rounded hover:bg-[#131313]">
@@ -155,6 +156,17 @@ export default function Navbar({ initialBackground = false }) {
         <Link href="/signUp">
           <button className="px-4 py-2 text-sm font-medium text-black bg-white rounded hover:bg-gray-100">
             Sign up
+          </button>
+        </Link>
+      </div>*/}
+
+      <div className="hidden sm:flex items-center gap-4">
+        <Link href="/logIn">
+          <button className="">
+          </button>
+        </Link>
+        <Link href="/signUp">
+          <button className="">
           </button>
         </Link>
       </div>
