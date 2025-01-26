@@ -3,56 +3,76 @@ import Navbar from "@/app/components/ui/Navbar";
 export const dynamic = "force-dynamic";
 
 const plans = [
-    {
-        title: "NFL WEEK PACKAGE ",
-        price: "34.99",
-        description: "> 20-30 plays a week",
-        features: ["Mainly player props", "Include derivatives main markets (lower limit bets)"],
-        link: "https://www.whop.com/beattheline-nfl/"
-    },
-    {
-        title: "NCAA Men’s Basketball WEEK PACKAGE ",
-        price: "34.99",
-        description: "> 20-30 plays a week",
-        features: ["Mainly player props", "One main market a day + derivatives main markets"],
-        link: "https://whop.com/beattheline-ncaab/"
-    },
-    {
-        title: "NCAA Men’s Football WEEK PACKAGE ",
-        price: "24.99",
-        description: "> 10-20 plays a week",
-        note: "(VARIES BASED ON SLATE)",
-        features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://whop.com/beattheline-ncaaf/"
-    },
-    {
-        title: "NBA WEEK PACKAGE",
-        price: "69.99",
-        description: "> 50-75 plays a week",
-        features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://whop.com/beattheline-nba/"
-    },
-    {
-        title: "NHL WEEK PACKAGE",
-        price: "29.99",
-        description: "> 15-25 plays a week",
-        features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://whop.com/beattheline-nhl/"
-    },
-    {
-        title: "WNBA WEEK PACKAGE",
-        price: "69.99",
-        description: "> 50-75 plays a week",
-        features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://whop.com/beattheline-wnba/"
-    },
-    {
-        title: "MLB WEEK PACKAGE",
-        price: "34.99",
-        description: "> 30-40 plays a week",
-        features: ["Mainly player props", "Include derivatives main markets"],
-        link: "https://whop.com/beattheline-mlb/ "
-    }/*,
+  {
+    title: "NFL WEEK PACKAGE ",
+    price: "34.99",
+    description: "> 20-30 plays a week",
+    features: [
+      "Mainly player props",
+      "Include derivatives main markets (lower limit bets)",
+    ],
+    link: "https://www.whop.com/beattheline-nfl/",
+    dates: "September - January",
+    cta: "Active",
+  },
+  {
+    title: "NCAA Men’s Basketball WEEK PACKAGE ",
+    price: "34.99",
+    description: "> 20-30 plays a week",
+    features: [
+      "Mainly player props",
+      "One main market a day + derivatives main markets",
+    ],
+    link: "https://whop.com/beattheline-ncaab/",
+    dates: "November - April",
+    cta: "Active",
+  },
+  {
+    title: "NCAA Men’s Football WEEK PACKAGE ",
+    price: "24.99",
+    description: "> 10-20 plays a week",
+    note: "(VARIES BASED ON SLATE)",
+    features: ["Mainly player props", "Include derivatives main markets"],
+    link: "https://whop.com/beattheline-ncaaf/",
+    dates: "August - January",
+    cta: "Coming Soon",
+  },
+  {
+    title: "NBA WEEK PACKAGE",
+    price: "69.99",
+    description: "> 50-75 plays a week",
+    features: ["Mainly player props", "Include derivatives main markets"],
+    link: "https://whop.com/beattheline-nba/",
+    dates: "October - June",
+    cta: "Active",
+  },
+  {
+    title: "NHL WEEK PACKAGE",
+    price: "29.99",
+    description: "> 15-25 plays a week",
+    features: ["Mainly player props", "Include derivatives main markets"],
+    link: "https://whop.com/beattheline-nhl/",
+    dates: "October - June",
+    cta: "Active",
+  },
+  {
+    title: "WNBA WEEK PACKAGE",
+    price: "69.99",
+    description: "> 50-75 plays a week",
+    features: ["Mainly player props", "Include derivatives main markets"],
+    link: "https://whop.com/beattheline-wnba/",
+    dates: "May - October",
+    cta: "Coming Soon",
+  },
+  {
+    title: "MLB WEEK PACKAGE",
+    price: "34.99",
+    description: "> 30-40 plays a week",
+    features: ["Mainly player props", "Include derivatives main markets"],
+    link: "https://whop.com/beattheline-mlb/ ",
+    dates: "March - November",
+    cta: "Coming Soon",
+  } /*,
     {
         title: "SEASON PACKAGE",
         price: "TBD",
@@ -122,15 +142,26 @@ export default function Subscriptions() {
                 ))}
               </ul>
 
+              <div className="w-full mt-auto pb-4">
+                <p className="text-xs font-medium text-[#9e9e9e] uppercase tracking-wide">
+                  Available From
+                </p>
+                <p className="text-base font-medium italic text-left mt-1">
+                  {plan.dates}
+                </p>
+              </div>
+
               <a
-                href={plan.link.trim()} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                href={plan.link.trim()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full mt-auto"
               >
-                <button className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover disabled:cursor-not-allowed"
-                disabled>
-                  Coming Soon!
+                <button
+                  className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover disabled:cursor-not-allowed"
+                  disabled
+                >
+                  {plan.cta}
                 </button>
               </a>
             </div>
