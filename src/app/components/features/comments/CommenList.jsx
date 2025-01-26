@@ -10,7 +10,7 @@ const calculateFontSize = (text) => {
   } else if (text.length > 200) {
     return `${baseSize - 2}px`;
   } else {
-    return `${baseSize}px`; // Default size
+    return `${baseSize}px`; // Default  size
   }
 };
 
