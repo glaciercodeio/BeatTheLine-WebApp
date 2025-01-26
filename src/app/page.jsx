@@ -75,7 +75,7 @@ export default function Home() {
 
             {/* Buttons container */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Link href="/learn-more">
+              <Link href="/aboutUs">
                 <button className="bg-white text-black border border-[#72D53C] px-6 py-2 rounded-md hover:bg-[#72D53C] hover:text-white transition-colors">
                   Learn More
                 </button>
@@ -214,7 +214,7 @@ export default function Home() {
           <div className="lg:w-[55%] flex justify-center">
             <iframe
               className="w-full aspect-video rounded-lg"
-              src="https://www.youtube.com/embed/RLH8GVzFYek" 
+              src="https://www.youtube.com/embed/RLH8GVzFYek"
               title="YouTube video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -232,7 +232,9 @@ export default function Home() {
                 <div className="bg-[#72D53C] text-white text-2xl sm:text-3xl w-16 h-16 rounded-full flex items-center justify-center">
                   <FaChartLine />
                 </div>
-                <h1 className="text-left text-4xl font-semibold mt-7 text-black mb-7">Profit</h1>
+                <h1 className="text-left text-4xl font-semibold mt-7 text-black mb-7">
+                  Profit
+                </h1>
               </div>
 
               <p className="text-lg sm:text-xl lg:text-2xl mb-10 text-[#000000]">
