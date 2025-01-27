@@ -159,7 +159,7 @@ export default function Subscriptions() {
               >
                 <button
                   className="w-full py-3 px-4 rounded-md font-semibold transition bg-white text-black hover:bg-green-700 hover disabled:cursor-not-allowed"
-                  disabled
+                  disabled={plan.cta === "Active" ? false : true}
                 >
                   {plan.cta}
                 </button>
