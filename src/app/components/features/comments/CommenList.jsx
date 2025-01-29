@@ -165,7 +165,7 @@ const Comments = () => {
           {allComments.map((comment, index) => (
             <div
               key={comment.id}
-              className="rounded-md bg-[#ffffff] text-white py-6 px-6 sm:py-8 sm:px-8 flex flex-col justify-between h-72 w-[300px] sm:w-[400px] lg:w-[600px] shrink-0"
+              className="rounded-md bg-[#ffffff] text-white py-6 px-6 sm:py-8 sm:px-8 flex flex-col justify-start h-auto w-[300px] sm:w-[400px] lg:w-[600px] shrink-0"
             >
               {/* User info */}
               <div className="flex items-center mb-4">
@@ -182,16 +182,14 @@ const Comments = () => {
               </div>
 
               {/* Comments */}
-              <p
-                className="text-2xl font-regular mb-4 text-black text-xs"
-                style={{ fontSize: calculateFontSize(comment.text) }}
-              >
-                {comment.text}
-              </p>
-              {/* Date */}
-              {/*
-              <div className="text-sm text-[#727272]">{comment.date}</div>
-              */}
+              <div className="flex-grow">
+                <p
+                  className="text-2xl font-regular mb-4 text-black text-xs"
+                  style={{ fontSize: calculateFontSize(comment.text) }}
+                >
+                  {comment.text}
+                </p>
+              </div>
             </div>
           ))}
         </div>
