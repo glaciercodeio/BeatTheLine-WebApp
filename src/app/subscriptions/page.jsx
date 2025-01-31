@@ -11,6 +11,8 @@ const plans = [
     link: "https://www.whop.com/beattheline-nfl/",
     dates: "September - January",
     cta: "Subscribe",
+    roi: "5.22%",
+    record: "1121-984",
   },
   {
     title: "NCAA Men’s Basketball WEEK PACKAGE ",
@@ -39,6 +41,8 @@ const plans = [
     link: "https://whop.com/beattheline-nba/",
     dates: "October - June",
     cta: "Subscribe",
+    roi: "8.27%",
+    record: "11892-9653",
   },
   {
     title: "NHL WEEK PACKAGE",
@@ -48,6 +52,8 @@ const plans = [
     link: "https://whop.com/beattheline-nhl/",
     dates: "October - June",
     cta: "Subscribe",
+    roi: "4.11%",
+    record: "647-587",
   },
   {
     title: "WNBA WEEK PACKAGE",
@@ -66,6 +72,8 @@ const plans = [
     link: "https://whop.com/beattheline-mlb/ ",
     dates: "March - November",
     cta: "Coming Soon",
+    roi: "2.28%",
+    record: "1680-2417",
   } /*,
     {
         title: "SEASON PACKAGE",
@@ -103,7 +111,7 @@ export default function Subscriptions() {
           {sortedPlans.map((plan, index) => (
             <div
               key={index}
-              className={`w-full sm:w-80 rounded-xl p-6 border border-[#252525] hover:border-green-700 hover:bg-green-50 dark:hover:bg-gray-800 hover:shadow-lg transition duration-300 flex flex-col ${
+              className={`w-full sm:w-80 rounded-xl p-6 border border-[#252525] hover:border-green-600 hover:border-2 hover:bg-green-50 dark:border-gray-700 dark:hover:bg-gray-800 hover:shadow-lg transition duration-300 flex flex-col ${
                 plan.cta === "Coming Soon"
                   ? "opacity-50 pointer-events-none"
                   : ""
@@ -147,6 +155,33 @@ export default function Subscriptions() {
                   </li>
                 ))}
               </ul>
+
+              {plan.roi?.trim() && plan.record?.trim() && (
+                <div className="mb-6 bg-green-50 dark:bg-gray-700 rounded-lg p-4 space-y-4 border border-green-100 dark:border-gray-600">
+                  <div className="flex justify-between items-center pb-2 border-b border-green-200 dark:border-gray-500">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">📈</span>
+                      <span className="font-semibold text-green-700 dark:text-green-400">
+                        Per-Bet ROI:
+                      </span>
+                    </div>
+                    <span className="font-bold text-lg text-gray-900 dark:text-white">
+                      {plan.roi}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">📊</span>
+                      <span className="font-semibold text-green-700 dark:text-green-400">
+                        Record:
+                      </span>
+                    </div>
+                    <span className="font-bold text-lg text-gray-900 dark:text-white">
+                      {plan.record}
+                    </span>
+                  </div>
+                </div>
+              )}
 
               <div className="w-full mt-auto pb-4">
                 <p className="text-xs font-medium text-[#9e9e9e] uppercase tracking-wide">
