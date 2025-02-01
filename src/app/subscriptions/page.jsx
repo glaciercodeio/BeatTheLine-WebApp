@@ -111,7 +111,7 @@ export default function Subscriptions() {
           {sortedPlans.map((plan, index) => (
             <div
               key={index}
-              className={`w-full sm:w-80 rounded-xl p-6 border border-[#252525] hover:border-green-600 hover:border-2 hover:bg-green-50 dark:border-gray-700 dark:hover:bg-gray-800 hover:shadow-lg transition duration-300 flex flex-col ${
+              className={`w-full sm:w-80 rounded-xl p-6 border-2 hover:border-green-600  border-gray-700 hover:bg-gray-800 hover:shadow-lg transition duration-300 flex flex-col ${
                 plan.cta === "Coming Soon"
                   ? "opacity-50 pointer-events-none"
                   : ""
@@ -157,26 +157,26 @@ export default function Subscriptions() {
               </ul>
 
               {plan.roi?.trim() && plan.record?.trim() && (
-                <div className="mb-6 bg-green-50 dark:bg-gray-700 rounded-lg p-4 space-y-4 border border-green-100 dark:border-gray-600">
-                  <div className="flex justify-between items-center pb-2 border-b border-green-200 dark:border-gray-500">
+                <div className="mb-6 bg-gray-700 rounded-lg p-4 space-y-4 border border-gray-600">
+                  <div className="flex justify-between items-center pb-2 border-b border-gray-500">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">📈</span>
-                      <span className="font-semibold text-green-700 dark:text-green-400">
+                      <span className="font-semibold text-green-400">
                         Per-Bet ROI:
                       </span>
                     </div>
-                    <span className="font-bold text-lg text-gray-900 dark:text-white">
+                    <span className="font-bold text-lg text-white">
                       {plan.roi}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">📊</span>
-                      <span className="font-semibold text-green-700 dark:text-green-400">
+                      <span className="font-semibold text-green-400">
                         Record:
                       </span>
                     </div>
-                    <span className="font-bold text-lg text-gray-900 dark:text-white">
+                    <span className="font-bold text-lg text-white">
                       {plan.record}
                     </span>
                   </div>
