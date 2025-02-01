@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="px-6 py-8 sm:px-20 bg-gray-500 dark:bg-[#000]">
-      <div className="flex flex-col items-center max-w-4xl mx-auto text-gray-600 dark:text-gray-400">
+    <footer className="px-6 py-8 sm:px-20 bg-[#000]">
+      <div className="flex flex-col items-center max-w-4xl mx-auto text-gray-400">
         <div className="flex flex-col sm:flex-row sm:justify-between items-center w-full space-y-6 sm:space-y-0">
           <div className="sm:order-1">
             <Image
