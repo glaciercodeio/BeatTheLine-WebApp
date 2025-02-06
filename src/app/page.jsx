@@ -226,8 +226,8 @@ export default function Home() {
         {/* Main content */}
         <main className="flex-1 bg-white dark:bg-[#ffffff]">
           {/* Chart section */}
-          <section className="p-6 sm:p-12 flex flex-col lg:flex-row gap-12 lg:gap-36">
-            <div className="lg:w-[40%] text-center lg:text-left">
+          <section className="p-6 sm:p-12 flex flex-col lg:flex-row items-center justify-center">
+            <div className="p-5 lg:w-[40%] text-center lg:text-left">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-[#72D53C] text-white text-2xl sm:text-3xl w-16 h-16 rounded-full flex items-center justify-center">
                   <FaChartLine />
@@ -261,8 +261,18 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="lg:w-[60%] overflow-hidden">
-              <PerformanceChart />
+            <div className="lg:w-[60%] max-w-2xl relative overflow-hidden">
+              {/*<PerformanceChart />*/}
+              <Image
+                src="/images/ROI-BTL.png"
+                alt="BTL ROI"
+                layout="responsive"
+                width={1024}
+                height={768}
+                objectFit="cover"
+                objectPosition="center"
+                quality={90}
+              />
             </div>
           </section>
 
