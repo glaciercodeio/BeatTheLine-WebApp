@@ -244,7 +244,7 @@ export default function Home() {
               </p>
 
               <div className="text-center mt-5 sm:mt-4 mx-auto">
-                <div className="text-5xl sm:text-6xl lg:text-8xl font-regular flex flex-col sm:flex-row items-center justify-center text-[#72D53C]">
+                <div className="text-5xl sm:text-6xl lg:text-8xl font-regular flex flex-col sm:flex-row text-[#72D53C]">
                   <span className="mr-0 sm:mr-2">6.09%</span>
                   <div className="text-[#ffffff] text-3xl sm:text-5xl lg:text-6xl mt-4 sm:mt-0 bg-[#72D53C] py-2 px-3 sm:py-1 sm:px-4 rounded-2xl flex justify-center items-center">
                     <FaArrowUp
@@ -261,7 +261,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="lg:w-[60%] max-w-2xl relative overflow-hidden">
+            <div className="lg:w-[60%] max-w-3xl relative overflow-hidden">
               {/*<PerformanceChart />*/}
               <Image
                 src="/images/ROI-BTL.png"
