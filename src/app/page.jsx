@@ -245,7 +245,7 @@ export default function Home() {
                 <span className="text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
                   📈
                 </span>
-                <span className="font-bold text-2xl sm:text-2xl lg:text-3xl xl::text-5xl">
+                <span className="font-bold text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
                   ROI:
                 </span>
                 <span className="text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
