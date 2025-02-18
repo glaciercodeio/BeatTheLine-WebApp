@@ -4,34 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/ui/Navbar";
 import Image from "next/image";
+import { login, signup } from "./actions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    // Here you can implement authentication logic
-    try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to log in");
-      }
-
-      console.log("User logged in:", data);
-      router.push("/dashboard"); // Redirect to dashboard on success
-    } catch (error) {
-      alert(error.message); // Show error message
-    }
-  };
 
   return (
     <>
@@ -57,12 +34,14 @@ export default function Login() {
             Access your account and start betting smarter.
           </p>
 
-          <form onSubmit={handleLogin} className="space-y-6">
+          <form className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-[#E2E7EA] mb-2">
                 Email
               </label>
               <input
+                id="email"
+                name="email"
                 type="email"
                 placeholder="Enter your email"
                 value={email}
@@ -76,6 +55,8 @@ export default function Login() {
                 Password
               </label>
               <input
+                id="password"
+                name="password"
                 type="password"
                 placeholder="Enter your password"
                 value={password}
@@ -85,7 +66,7 @@ export default function Login() {
               />
             </div>
             <button
-              type="submit"
+              formAction={login}
               className="w-full bg-[#72D53C] text-white py-3 rounded-lg font-semibold hover:bg-[#66c038] transition-all"
             >
               Log In

@@ -109,10 +109,12 @@ export default function Subscriptions() {
         </h3>
 
         <div className="flex-grow flex flex-wrap justify-center gap-6 p-6 w-full max-w-6xl mx-auto mt-10 items-start">
-          {sortedPlans.map((plan, index) => (
-            <>
-              {plan.roi?.trim() && plan.record?.trim() && (
+          {sortedPlans.map(
+            (plan, index) =>
+              plan.roi?.trim() &&
+              plan.record?.trim() && (
                 <div
+                  key={index}
                   className={`w-full sm:w-80 rounded-xl p-6 border-2 hover:border-green-600  border-gray-700 hover:bg-gray-800 hover:shadow-lg transition duration-300 flex flex-col ${
                     plan.cta === "Coming Soon"
                       ? "opacity-50 pointer-events-none"
@@ -227,9 +229,8 @@ export default function Subscriptions() {
                     </button>
                   </a>
                 </div>
-              )}
-            </>
-          ))}
+              )
+          )}
         </div>
       </div>
     </>
