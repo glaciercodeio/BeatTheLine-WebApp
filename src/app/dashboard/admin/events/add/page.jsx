@@ -59,7 +59,7 @@ const defaultColumns = [
       <Button
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="flex items-center"
+        className="w-full flex items-center"
       >
         Sportbook
         <LuChevronsUpDown className="ml-2 h-4 w-4" />
@@ -72,7 +72,7 @@ const defaultColumns = [
       <Button
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="flex items-center"
+        className="w-full flex items-center"
       >
         Bet ID
         <LuChevronsUpDown className="ml-2 h-4 w-4" />
@@ -93,7 +93,7 @@ const defaultColumns = [
       <Button
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="flex items-center"
+        className="w-full flex items-center"
       >
         Event Date
         <LuChevronsUpDown className="ml-2 h-4 w-4" />

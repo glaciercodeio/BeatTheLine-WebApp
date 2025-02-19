@@ -1,11 +1,12 @@
 import React from "react";
 import { useState, useMemo } from "react";
 import {
+  ColumnDef,
   useReactTable,
   getCoreRowModel,
+  getFilteredRowModel,
   flexRender,
   getPaginationRowModel,
-  SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
 import {
@@ -17,10 +18,45 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-
+import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { DataTablePagination } from "@/components/data-table/data-table-pagination";
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
+import DataTableToolbar from "@/components/data-table/data-table-toolbar";
+
+// Custom multi-value filter function
+const multiValueFilterFn = (row, columnId, filterValues) => {
+  // If no filter values are provided, include the row.
+  if (!filterValues || filterValues.length === 0) return true;
+  const cellValue = row.getValue(columnId);
+  // Return true if the cell value matches any of the filter values.
+  return filterValues.some(
+    (val) => String(cellValue).toLowerCase() === String(val).toLowerCase()
+  );
+};
+
+function generateAvailableFilters(data, columns) {
+  return (
+    columns
+      // Filter to include only columns that should be filterable
+      .filter((col) => col.accessorKey && col.enableGlobalFilter !== false)
+      .map((col) => {
+        // Extract unique values based on the column accessor
+        const uniqueValues = new Set(data.map((row) => row[col.accessorKey]));
+        const options = Array.from(uniqueValues).map((value) => ({
+          label: String(value),
+          value: String(value),
+        }));
+        return {
+          id: col.id, // Use col.id (or col.accessorKey if that's what you use)
+          title:
+            col.filterTitle ||
+            (typeof col.header === "string" ? col.header : col.id),
+          options,
+        };
+      })
+  );
+}
 
 export default function DataTable({
   data,
@@ -32,6 +68,9 @@ export default function DataTable({
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 10 });
   const [sorting, setSorting] = useState([]);
+  const [columnVisibility, setColumnVisibility] = useState({});
+  const [globalFilter, setGlobalFilter] = useState("");
+  const [columnFilters, setColumnFilters] = useState([]);
 
   // Define a selection column with a header checkbox and a row checkbox.
   const selectionColumn = useMemo(
@@ -102,18 +141,46 @@ export default function DataTable({
     return cols;
   }, [selectionColumn, columns, actionColumn]);
 
+  // Enhance columns: if a column has an accessor and is filterable, assign our custom filter function if not already set.
+  const enhancedColumns = useMemo(() => {
+    return tableColumns.map((col) => {
+      if (
+        col.accessorKey &&
+        col.enableGlobalFilter !== false &&
+        !col.filterFn
+      ) {
+        return {
+          ...col,
+          filterFn: multiValueFilterFn,
+        };
+      }
+      return col;
+    });
+  }, [tableColumns]);
+
   const table = useReactTable({
     data,
-    columns: tableColumns,
+    columns: enhancedColumns,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(), // enable client-side global filtering
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     manualPagination: false,
-    state: { rowSelection, pagination, sorting },
+    state: {
+      rowSelection,
+      pagination,
+      sorting,
+      columnVisibility,
+      globalFilter,
+      columnFilters,
+    },
     onPaginationChange: setPagination,
     onSortingChange: setSorting,
-    enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
+    onColumnVisibilityChange: setColumnVisibility,
+    onGlobalFilterChange: setGlobalFilter,
+    onColumnFiltersChange: setColumnFilters,
+    enableRowSelection: true,
     initialState: {
       pagination: {
         pageSize: 10,
@@ -122,8 +189,14 @@ export default function DataTable({
     },
   });
 
+  const availableFilters = useMemo(
+    () => generateAvailableFilters(data, columns),
+    [data, columns]
+  );
+
   return (
     <div>
+      <DataTableToolbar table={table} availableFilters={availableFilters} />
       <div className="w-full h-full overflow-x-auto overflow-y-auto max-h-[75vh]">
         <div className="h-[63vh] relative overflow-auto">
           <Table className="w-full border rounded-lg" onClick={onClick}>
@@ -133,7 +206,7 @@ export default function DataTable({
                   {headerGroup.headers.map((header) => (
                     <TableHead
                       key={header.id}
-                      className="px-4 py-2 text-left text-sm font-semibold whitespace-nowrap"
+                      className="px-4 py-2 text-center text-sm font-semibold whitespace-nowrap"
                     >
                       {header.isPlaceholder
                         ? null
@@ -157,7 +230,7 @@ export default function DataTable({
                     {row.getVisibleCells().map((cell) => (
                       <TableCell
                         key={cell.id}
-                        className="px-4 py-2 text-sm max-w-[200px] truncate sm:max-w-none sm:whitespace-normal"
+                        className="px-4 py-2 text-center text-sm max-w-[200px] truncate sm:max-w-none sm:whitespace-normal"
                       >
                         {cell.column.columnDef.renderBadge
                           ? (() => {
