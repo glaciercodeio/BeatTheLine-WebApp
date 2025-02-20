@@ -236,7 +236,7 @@ export default function Events() {
       const response = await fetch("/api/admin/events", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: eventId }),
+        body: JSON.stringify({ ids: eventId }),
       });
       const result = await response.json();
       if (!response.ok) {
@@ -245,7 +245,7 @@ export default function Events() {
         return;
       }
       await loadEvents();
-      toast.success("Event deleted successfully!");
+      toast.success("Event(s) deleted successfully!");
     } catch (error) {
       setData(currentData);
       toast.error(error.message);

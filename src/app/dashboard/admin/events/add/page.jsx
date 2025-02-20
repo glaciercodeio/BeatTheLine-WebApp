@@ -48,6 +48,7 @@ import CSVUploader from "@/app/components/features/CSVUploader";
 import DataTable from "@/app/components/ui/data-table";
 import EventForm from "@/app/components/ui/EventForm";
 import { LuChevronsUpDown } from "react-icons/lu";
+import { v4 as uuidv4 } from "uuid";
 
 // Create a column helper without TypeScript types
 const columnHelper = createColumnHelper();
@@ -205,6 +206,8 @@ function AdminCreateEvents() {
         rowData[columnKey] = row[i] ? row[i].trim() : ""; // Assign cell value
       });
 
+      // Add a temporary UID if one doesn't exist.
+      rowData.id = rowData.id || uuidv4();
       return rowData;
     });
 
@@ -214,13 +217,16 @@ function AdminCreateEvents() {
 
   // Add the new row to the table data
   const handleAddRow = (formData) => {
+    const newRow = {
+      ...formData,
+      id: formData.id || uuidv4(), // Ensure each new row has a unique id.
+    };
     setData((prevData) => [...prevData, formData]);
     newRowForm.reset();
     setOpen(false);
   };
 
   const handleSaveEvents = async () => {
-    console.log("data", data);
     // Validate that there's data to save
     if (!data || data.length === 0) {
       toast.error("No events data to save.");
@@ -228,12 +234,14 @@ function AdminCreateEvents() {
     }
 
     try {
+      const eventsToSave = data.map(({ id, ...rest }) => rest);
+
       const response = await fetch("/api/admin/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data), // 'data' is your table data state
+        body: JSON.stringify(eventsToSave), // 'data' is your table data state
       });
 
       const result = await response.json();
@@ -247,12 +255,8 @@ function AdminCreateEvents() {
     }
   };
 
-  const handleDeleteRow = (rowIndex) => {
-    setData((prevData) => {
-      const newData = [...prevData];
-      newData.splice(rowIndex, 1);
-      return newData;
-    });
+  const handleDeleteRow = (rowIds) => {
+    setData((prevData) => prevData.filter((row) => !rowIds.includes(row.id)));
   };
 
   return (

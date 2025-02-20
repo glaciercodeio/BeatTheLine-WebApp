@@ -266,7 +266,7 @@ export default function Users() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: userId }),
+        body: JSON.stringify({ ids: userId }),
       });
 
       const result = await response.json();

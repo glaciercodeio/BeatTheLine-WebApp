@@ -96,16 +96,19 @@ export async function DELETE(request) {
     await authenticate(supabase);
 
     const body = await request.json();
+    const { ids } = body;
     // Expecting the body to include the event id.
-    if (!body.id) {
-      return NextResponse.json({ error: "Missing event id" }, { status: 400 });
+    if (!ids || !Array.isArray(ids) || ids.length === 0) {
+      return NextResponse.json(
+        { error: "Missing event id(s)" },
+        { status: 400 }
+      );
     }
-    const { id } = body;
-    const { error } = await supabase.from("events").delete().eq("id", id);
+    const { error } = await supabase.from("events").delete().in("id", ids);
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
-    return NextResponse.json({ message: "Event deleted successfully!" });
+    return NextResponse.json({ message: "Event(s) deleted successfully!" });
   } catch (err) {
     console.error("Unexpected error:", err);
     return NextResponse.json(

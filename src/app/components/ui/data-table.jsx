@@ -17,6 +17,14 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -71,6 +79,9 @@ export default function DataTable({
   const [columnVisibility, setColumnVisibility] = useState({});
   const [globalFilter, setGlobalFilter] = useState("");
   const [columnFilters, setColumnFilters] = useState([]);
+  const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [selectedDeleteId, setSelectedDeleteId] = useState(null);
+  const [isMultiDeleteDialogOpen, setMultiDeleteDialogOpen] = useState(false);
 
   // Define a selection column with a header checkbox and a row checkbox.
   const selectionColumn = useMemo(
@@ -120,7 +131,10 @@ export default function DataTable({
           )}
           {onDelete && (
             <button
-              onClick={() => onDelete(row.original.auth_id || row.original.id)}
+              onClick={() => {
+                setSelectedDeleteId(row.original.auth_id || row.original.id);
+                setDeleteDialogOpen(true);
+              }}
               className="p-1 hover:text-red-600"
               title="Delete"
             >
@@ -194,9 +208,33 @@ export default function DataTable({
     [data, columns]
   );
 
+  const selectedRowIds = useMemo(() => {
+    return table
+      .getSelectedRowModel()
+      .rows.map((row) => row.original.auth_id || row.original.id);
+  }, [rowSelection]);
+
+  // Handler for multi-delete confirmation.
+  const handleMultiDelete = () => {
+    onDelete(selectedRowIds); // send array of IDs
+    setRowSelection({});
+    setMultiDeleteDialogOpen(false);
+  };
+
   return (
     <div>
       <DataTableToolbar table={table} availableFilters={availableFilters} />
+      {/* Conditionally render the multi-delete button when rows are selected */}
+      {selectedRowIds.length > 0 && (
+        <div className="mb-4">
+          <Button
+            variant="destructive"
+            onClick={() => setMultiDeleteDialogOpen(true)}
+          >
+            Delete Selected ({selectedRowIds.length})
+          </Button>
+        </div>
+      )}
       <div className="w-full h-full overflow-x-auto overflow-y-auto max-h-[75vh]">
         <div className="h-[63vh] relative overflow-auto">
           <Table className="w-full border rounded-lg" onClick={onClick}>
@@ -271,6 +309,64 @@ export default function DataTable({
         {/* Pagination Component */}
       </div>
       <DataTablePagination table={table} />
+
+      {/* Delete Confirmation Dialog */}
+      <Dialog open={isDeleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Confirm Deletion</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to delete this record?
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="flex gap-2">
+            <Button
+              variant="secondary"
+              onClick={() => setDeleteDialogOpen(false)}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={() => {
+                if (selectedDeleteId) {
+                  onDelete([selectedDeleteId]);
+                }
+                setDeleteDialogOpen(false);
+              }}
+            >
+              Delete
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Multi-Delete Confirmation Dialog */}
+      <Dialog
+        open={isMultiDeleteDialogOpen}
+        onOpenChange={setMultiDeleteDialogOpen}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Confirm Multiple Deletion</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to delete the selected{" "}
+              {selectedRowIds.length} record(s)?
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="flex gap-2">
+            <Button
+              variant="secondary"
+              onClick={() => setMultiDeleteDialogOpen(false)}
+            >
+              Cancel
+            </Button>
+            <Button variant="destructive" onClick={handleMultiDelete}>
+              Delete
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

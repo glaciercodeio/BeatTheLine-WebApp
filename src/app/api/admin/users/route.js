@@ -117,31 +117,48 @@ export async function PATCH(request) {
 }
 
 export async function DELETE(request) {
-  //const supabase = await createServerClient();
   const supabaseAdmin = createAdminClient();
-
-  // Parse the JSON body of the request.
   const body = await request.json();
-  const { id } = body;
+  let { ids, id } = body;
 
-  if (!id) {
+  // Convert a single id to an array if needed.
+  if (!ids && id) {
+    ids = [id];
+  }
+
+  if (!ids || !Array.isArray(ids) || ids.length === 0) {
     return NextResponse.json(
-      { error: "Missing ID identifier" },
+      { error: "Missing or invalid IDs" },
       { status: 400 }
     );
   }
 
-  const { data, error } = await supabaseAdmin.auth.admin.deleteUser(id);
+  // Delete users from Supabase Auth and log any errors.
+  const authDeletionResults = await Promise.all(
+    ids.map(async (id) => {
+      const result = await supabaseAdmin.auth.admin.deleteUser(id);
+      if (result.error) {
+        console.error(
+          `Failed to delete auth user with id ${id}:`,
+          result.error
+        );
+      }
+      return result;
+    })
+  );
 
-  // Delete the user record matching the given id.
+  // Delete user records from the "users" table in one query using `.in()`
   const { data: dbData, error: dbError } = await supabaseAdmin
     .from("users")
     .delete()
-    .eq("auth_id", id);
+    .in("auth_id", ids);
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  if (dbError) {
+    return NextResponse.json({ error: dbError.message }, { status: 500 });
   }
 
-  return NextResponse.json(data);
+  return NextResponse.json({
+    authDeletionResults,
+    dbData,
+  });
 }
