@@ -44,8 +44,8 @@ export default function DataTableFilterBar({ table, availableFilters }) {
   };
 
   return (
-    <div className="flex flex-col space-y-2 m-2">
-      <div className="flex items-center gap-2">
+    <div className="m-2">
+      <div className="flex flex-wrap items-center gap-2">
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <Button variant="outline" size="sm">

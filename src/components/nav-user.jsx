@@ -26,28 +26,6 @@ export function NavUser({ user }) {
   const supabaseClient = createClient();
   const router = useRouter();
   const { isMobile } = useSidebar();
-  const [profile, setProfile] = useState(null);
-
-  // Fetch additional user details from your custom users table.
-  useEffect(() => {
-    async function fetchProfile() {
-      if (!user?.id) return;
-
-      const { data, error } = await supabaseClient
-        .from("users")
-        .select("name, lastname")
-        .eq("auth_id", user.id) // assuming "auth_id" links your custom table to auth.users.id
-        .single();
-
-      if (error) {
-        console.error("Error fetching profile:", error.message);
-      } else {
-        setProfile(data);
-      }
-    }
-
-    fetchProfile();
-  }, [user, supabaseClient]);
 
   function getInitials(name, lastname) {
     const firstInitial = name ? name.charAt(0).toUpperCase() : "";
@@ -55,13 +33,9 @@ export function NavUser({ user }) {
     return firstInitial + lastInitial;
   }
   // Fall back to user.email if profile data is not available
-  const displayName = profile
-    ? `${profile.name} ${profile.lastname}`
-    : user.email;
-  const email = user.email;
-  const initials = profile
-    ? getInitials(profile.name, profile.lastname)
-    : user.email.charAt(0).toUpperCase();
+  const displayName = user ? `${user.name} ${user.lastname}` : "Unkown";
+  const email = user?.email;
+  const initials = user ? getInitials(user.name, user.lastname) : "NA";
 
   async function signOut() {
     const { error } = await supabaseClient.auth.signOut();

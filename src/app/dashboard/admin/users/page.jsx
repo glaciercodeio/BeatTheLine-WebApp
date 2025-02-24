@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import { createColumnHelper } from "@tanstack/react-table";
 import {
   Dialog,
   DialogContent,
@@ -13,7 +12,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Sheet,
   SheetClose,
@@ -41,88 +39,11 @@ import {
 } from "@/components/ui/select";
 
 import { toast } from "sonner";
-import { FaPlus, FaFileImport, FaRegTrashAlt, FaSave } from "react-icons/fa";
-import { LuChevronsUpDown } from "react-icons/lu";
+import { FaPlus } from "react-icons/fa";
 import DataTable from "@/app/components/ui/data-table";
+import { UserTableColumns } from "@/data/tableColumns/userTableColumns";
 
-// Create a column helper
-const columnHelper = createColumnHelper();
-
-const multiValueFilterFn = (row, columnId, filterValues) => {
-  // If no filter is set, return true (include the row)
-  if (!filterValues || filterValues.length === 0) return true;
-
-  const cellValue = row.getValue(columnId);
-  // Return true if the cellValue is in the filterValues array
-  return filterValues.some(
-    (val) => String(cellValue).toLowerCase() === String(val).toLowerCase()
-  );
-};
-
-// Define columns for the users table. Adjust the fields to match your Supabase users table.
-const defaultColumns = [
-  columnHelper.accessor("name", {
-    header: "Name",
-    id: "name",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("lastname", {
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="w-full flex items-center"
-      >
-        Last Name
-        <LuChevronsUpDown className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    id: "lastname",
-    cell: (info) => info.getValue(),
-    filterTitle: "Last Name",
-    filterFn: multiValueFilterFn,
-  }),
-  columnHelper.accessor("email", {
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() =>
-          column.toggleSorting(column.getIsSorted() === "asc" ? false : "asc")
-        }
-        className="w-full flex items-center justify-center"
-      >
-        Email
-        <LuChevronsUpDown className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    id: "email",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("role", {
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="w-full flex items-center"
-      >
-        Role
-        <LuChevronsUpDown className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    id: "role",
-    cell: (info) => info.getValue(),
-    renderBadge: true,
-    getBadgeProps: ({ value }) => {
-      if (value === "admin")
-        return { variant: "outline", className: "bg-blue-700" };
-      if (value === "partner")
-        return { variant: "outline", className: "bg-teal-700" };
-      if (value === "user")
-        return { variant: "outline", className: "bg-gray-500" };
-      return { variant: "destructive", className: "bg-red-500" };
-    },
-  }),
-];
+const defaultColumns = UserTableColumns;
 
 export default function Users() {
   // Table data state
@@ -226,7 +147,6 @@ export default function Users() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          // Make sure you send the original email (or id) so the API can locate the record.
           id: rowToModify.id,
           ...updates,
         }),
@@ -260,7 +180,7 @@ export default function Users() {
     try {
       // Optimistically update the local state by removing the user immediately.
       setData((prevData) => prevData.filter((user) => user.id !== userId));
-      // Send a DELETE request to your API route.
+
       const response = await fetch("/api/admin/users", {
         method: "DELETE",
         headers: {

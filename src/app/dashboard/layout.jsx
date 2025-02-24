@@ -1,4 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
+import { headers } from "next/headers";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -24,10 +25,32 @@ export default async function DashboardLayout({ children }) {
     redirect("/login");
   }
 
+  const reqHeaders = await headers();
+  const host = reqHeaders.get("host");
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const apiUrl = `${protocol}://${host}/api/users`;
+  let user = null;
+
+  try {
+    const response = await fetch(
+      `${apiUrl}?id=${encodeURIComponent(data?.user.id)}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Error fetching profile");
+    }
+    user = await response.json();
+  } catch (error) {
+    console.error("Error fetching profile:", error.message);
+  }
+
   return (
     <SidebarProvider>
       <div className="flex h-screen overflow-hidden min-h-0 w-full">
-        <AppSidebar data={data} />
+        <AppSidebar user={user} />
         <main
           className={`flex-1 overflow-hidden ${geistSans.variable} ${geistMono.variable} ${montserrat.variable}`}
           style={{

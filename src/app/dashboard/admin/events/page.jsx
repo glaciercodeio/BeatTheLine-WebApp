@@ -1,146 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useForm, FormProvider } from "react-hook-form";
-import { createColumnHelper } from "@tanstack/react-table";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "@/components/ui/form";
+import { useForm } from "react-hook-form";
 import {
   Dialog,
-  DialogTrigger,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogFooter,
-  DialogClose,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import DataTable from "@/app/components/ui/data-table";
 import EventForm from "@/app/components/ui/EventForm";
-import { LuChevronsUpDown } from "react-icons/lu";
+import { EventTableColumns } from "@/data/tableColumns/eventTableColumns";
 
-// Create a column helper
-const columnHelper = createColumnHelper();
-
-// Define columns for the events table based on your provided configuration.
-const eventColumns = [
-  columnHelper.accessor("sportsbook", {
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="w-full flex items-center"
-      >
-        Sportbook
-        <LuChevronsUpDown className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("betId", {
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="w-full flex items-center"
-      >
-        Bet ID
-        <LuChevronsUpDown className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("sport", {
-    header: "Sport",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("eventName", {
-    header: "Event Name",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("eventDate", {
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="w-full flex items-center"
-      >
-        Event Date
-        <LuChevronsUpDown className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("marketName", {
-    header: "Market Name",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("betName", {
-    header: "Bet Name",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("position", {
-    header: "Position",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("odds", {
-    header: "Odds",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("suggestedBetToWin", {
-    header: "Suggested Bet to Win",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("suggestedBetSize", {
-    header: "Suggested Bet Size",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("stake", {
-    header: "Stake",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("potentialPayout", {
-    header: "Potential Payout",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("projectedEV", {
-    header: "Projected EV %",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("convertedWin", {
-    header: "Converted Win %",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("tag", {
-    header: "Tag (1)",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("helperColumn", {
-    header: "Helper Column",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("result", {
-    header: "Result",
-    cell: (info) => info.getValue(),
-  }),
-];
+const eventColumns = EventTableColumns;
 
 export default function Events() {
   // Table data state

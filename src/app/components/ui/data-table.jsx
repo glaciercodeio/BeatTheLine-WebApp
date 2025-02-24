@@ -223,18 +223,12 @@ export default function DataTable({
 
   return (
     <div>
-      <DataTableToolbar table={table} availableFilters={availableFilters} />
-      {/* Conditionally render the multi-delete button when rows are selected */}
-      {selectedRowIds.length > 0 && (
-        <div className="mb-4">
-          <Button
-            variant="destructive"
-            onClick={() => setMultiDeleteDialogOpen(true)}
-          >
-            Delete Selected ({selectedRowIds.length})
-          </Button>
-        </div>
-      )}
+      <DataTableToolbar
+        table={table}
+        availableFilters={availableFilters}
+        selectedRowIds={selectedRowIds}
+        onMultiDelete={() => setMultiDeleteDialogOpen(true)}
+      />
       <div className="w-full h-full overflow-x-auto overflow-y-auto max-h-[75vh]">
         <div className="h-[63vh] relative overflow-auto">
           <Table className="w-full border rounded-lg" onClick={onClick}>
