@@ -171,8 +171,8 @@ export default function EventCards() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">Betting Events</h1>
-      <EventList data={events} />
-      {/*<BetEventsContainer data={events} />*/}
+      {/*<EventList data={events} />*/}
+      <BetEventsContainer data={events} />
     </div>
   );
 }

@@ -90,9 +90,9 @@ export default function AdminCreateEvents() {
       ...formData,
       id: formData.id || uuidv4(), // Ensure each new row has a unique id.
     };
-    setData((prevData) => [...prevData, formData]);
+    setData((prevData) => [...prevData, newRow]);
     newRowForm.reset();
-    setOpen(false);
+    setOpenAddDialog(false);
   };
 
   const handleSaveEvents = async () => {
