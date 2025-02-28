@@ -10,13 +10,12 @@ import { Button } from "@/components/ui/button";
 import { LuChevronsUpDown } from "react-icons/lu";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { EventList } from "./EventList";
 import BetEventsContainer from "./BetEventsContainer";
 
 const columnHelper = createColumnHelper();
 
 // Column definitions with sort buttons and custom headers
-export const EventTableColumns = [
+const EventTableColumns = [
   columnHelper.accessor("sportsbook", {
     header: ({ column }) => (
       <Button
@@ -171,7 +170,6 @@ export default function EventCards() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">Betting Events</h1>
-      {/*<EventList data={events} />*/}
       <BetEventsContainer data={events} />
     </div>
   );

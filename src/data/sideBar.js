@@ -13,7 +13,6 @@ export const SideBarData = {
       items: [
         { title: "RecordKeeping", url: "#" },
         { title: "PnL", url: "#", isActive: true },
-        { title: "Rendering", url: "#" },
       ],
     },
     {
