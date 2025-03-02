@@ -23,7 +23,7 @@ const formatPercentage = (value) => {
 
 export default function BetEventCard({ event }) {
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-[#1E2724] border-slate-800">
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <div>
