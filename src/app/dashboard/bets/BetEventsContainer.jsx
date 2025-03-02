@@ -12,6 +12,7 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
+import MasonryCard from "./MasonryCard";
 
 function generateAvailableFilters(data, columns) {
   return columns
@@ -68,9 +69,11 @@ export default function BetEventsContainer({ data, columns }) {
         filterColumns={false}
       />
       <ScrollArea className="h-[calc(100vh-150px)]">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
           {filteredEvents.map((event) => (
-            <BetEventCard key={event.Id} event={event} />
+            <div key={event.Id} className="mb-6 break-inside-avoid">
+              <BetEventCard event={event} />
+            </div>
           ))}
         </div>
       </ScrollArea>
