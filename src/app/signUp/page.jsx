@@ -43,8 +43,8 @@ export default function SignUp() {
         body: JSON.stringify({
           email: formData.email,
           password: formData.password,
-          username: `${formData.firstName} ${formData.lastName}`, // Combine first & last name
-          discord: formData.discord,
+          name: formData.firstName, // Combine first & last name
+          lastname: formData.lastName,
         }),
       });
 
