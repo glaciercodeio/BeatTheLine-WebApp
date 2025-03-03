@@ -4,11 +4,26 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/ui/Navbar";
 import Image from "next/image";
-import { login, signup } from "./actions";
+import { resetPassword } from "@/app/auth/action";
 
-export default function Login() {
+export default function ForgotPassword() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setMessage("");
+    setError("");
+    try {
+      const formData = new FormData();
+      formData.append("email", email);
+      await resetPassword(formData);
+      setMessage("A reset link will be sent to your email shortly.");
+    } catch (err) {
+      setError("Failed to send reset link. Please try again.");
+    }
+  };
 
   return (
     <>
@@ -28,13 +43,16 @@ export default function Login() {
 
         <div className="relative z-10 max-w-lg w-full bg-black/80 p-10 rounded-lg shadow-lg border border-[#E2E7EA]">
           <h2 className="text-4xl font-extrabold text-center mb-6 text-[#72D53C]">
-            Log In
+            Forgot Password
           </h2>
           <p className="text-lg text-center text-[#E2E7EA] mb-8">
-            Access your account and start betting smarter.
+            Enter your email below to receive a password reset link.
           </p>
 
-          <form className="space-y-6">
+          {message && <p className="text-green-500 text-center mb-4">{message}</p>}
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-[#E2E7EA] mb-2">
                 Email
@@ -50,48 +68,23 @@ export default function Login() {
                 className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-[#222] text-white placeholder-gray-400 focus:ring-2 focus:ring-[#72D53C]"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-[#E2E7EA] mb-2">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-[#222] text-white placeholder-gray-400 focus:ring-2 focus:ring-[#72D53C]"
-              />
-            </div>
-            <div className="flex justify-between items-center text-[#E2E7EA]">
-            </div>
             <button
-              formAction={login}
+              type="submit"
               className="w-full bg-[#72D53C] text-white py-3 rounded-lg font-semibold hover:bg-[#66c038] transition-all"
             >
-              Log In
+              Send Reset Link
             </button>
           </form>
 
           <div className="mt-6 text-center text-[#E2E7EA]">
             <p>
-              Don't have an account?
+              Remember your password?
               <a
-                href="/signUp"
+                href="/logIn"
                 className="text-[#72D53C] font-semibold ml-1 hover:underline"
               >
-                Sign up
+                Log in
               </a>
-              <p>
-              <a
-                  href="/forgot-password"
-                  className="text-[#72D53C] font-semibold hover:underline"
-                >
-                  Forgot Password?
-                </a>
-              </p>
             </p>
           </div>
         </div>
