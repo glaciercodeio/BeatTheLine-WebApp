@@ -66,7 +66,7 @@ export default function Home() {
             <h1 className="text-4xl sm:text-7xl font-extrabold tracking-tight mb-4 [text-shadow:_2px_2px_0_rgb(0_0_0)] [webkit-text-stroke:2px_black]">
               Welcome to Beat The Line
             </h1>
-            {/*<p className="bg-[#424040] text-white border-black text-2xl px-6 py-2 rounded-md transition-colors">*/}
+            {/* <p className="bg-[#424040] text-white border-black text-2xl px-6 py-2 rounded-md transition-colors">*/}
             <p className="text-white text-2xl [text-shadow:_2px_2px_0_rgb(0_0_0)] [webkit-text-stroke:1px_black]">
               We find the edge so you don’t have to.
             </p>
@@ -75,7 +75,7 @@ export default function Home() {
 
             {/* Buttons container */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Link href="/learn-more">
+              <Link href="/aboutUs">
                 <button className="bg-white text-black border border-[#72D53C] px-6 py-2 rounded-md hover:bg-[#72D53C] hover:text-white transition-colors">
                   Learn More
                 </button>
@@ -226,41 +226,53 @@ export default function Home() {
         {/* Main content */}
         <main className="flex-1 bg-white dark:bg-[#ffffff]">
           {/* Chart section */}
-          <section className="p-6 sm:p-12 flex flex-col lg:flex-row gap-12 lg:gap-36">
-            <div className="lg:w-[40%] text-center lg:text-left">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="bg-[#72D53C] text-white text-2xl sm:text-3xl w-16 h-16 rounded-full flex items-center justify-center">
-                  <FaChartLine />
-                </div>
-                <h1 className="text-left text-4xl font-semibold mt-7 text-black mb-7">Profit</h1>
+          <section className="p-3 sm:p-12 flex flex-col lg:flex-row items-center justify-center gap-8">
+            {/* Left Column (Bigger Proportion) */}
+            <div className="flex flex-col gap-6 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20 items-center w-full lg:w-[40%]">
+              <div className="bg-[#72D53C] text-gray-900  inline-flex items-center gap-1 p-6 sm:p-7 lg:p-8 rounded-full shadow-md">
+                <span className="text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
+                  💰
+                </span>
+                <span className="font-bold text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
+                  Profit:
+                </span>
+                <span className="text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
+                  $166,997.54
+                </span>
               </div>
 
-              <p className="text-lg sm:text-xl lg:text-2xl mb-10 text-[#000000]">
-                These are some of <br /> our data recorded in <br />{" "}
-                <span className="text-[#72D53C]">earnings</span> for the
-                previous year.
-              </p>
+              <div className="bg-[#72D53C] text-gray-900  inline-flex items-center gap-1 p-6 sm:p-7 lg:p-8 rounded-full shadow-md">
+                <span className="text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
+                  📈
+                </span>
+                <span className="font-bold text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
+                  ROI:
+                </span>
+                <span className="text-2xl sm:text-2xl lg:text-3xl xl:text-5xl">
+                  +6.09%
+                </span>
+              </div>
 
-              <div className="text-center mt-5 sm:mt-4 mx-auto">
-                <div className="text-5xl sm:text-6xl lg:text-8xl font-regular flex flex-col sm:flex-row items-center justify-center text-[#72D53C]">
-                  <span className="mr-0 sm:mr-2">6.09%</span>
-                  <div className="text-[#ffffff] text-3xl sm:text-5xl lg:text-6xl mt-4 sm:mt-0 bg-[#72D53C] py-2 px-3 sm:py-1 sm:px-4 rounded-2xl flex justify-center items-center">
-                    <FaArrowUp
-                      style={{
-                        transform: "rotate(45deg)",
-                        transition: "transform 0.3s",
-                      }}
-                    />
-                  </div>
-                </div>
-                <p className="text-xl sm:text-base lg:text-lg text-[#000000] font-semibold mt-2">
-                  Our annual profit
+              <div className="text-center max-w-md mx-auto">
+                <p className="text-gray-900 text-3xl font-semibold">
+                  *Assumes Betting to Win $100 on all Bets
                 </p>
               </div>
             </div>
 
-            <div className="lg:w-[60%] overflow-hidden">
-              <PerformanceChart />
+            {/* Right Column (Chart) */}
+            <div className="w-full lg:w-[60%] max-w-5xl flex justify-center">
+              <Image
+                src="/images/roi-chart/Chart.jpg"
+                alt="BTL ROI"
+                layout="responsive"
+                width={1920}
+                height={1080}
+                objectFit="cover"
+                objectPosition="center"
+                quality={100}
+                className="rounded-lg shadow-lg"
+              />
             </div>
           </section>
 
