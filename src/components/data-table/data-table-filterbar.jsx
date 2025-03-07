@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-} from "@/components/ui/popover";
+  PopoverTSX,
+  PopoverTriggerTSX,
+  PopoverContentTSX,
+} from "@/components/ui/popovertsx";
 import {
-  Command,
-  CommandGroup,
-  CommandItem,
-  CommandList,
-  CommandEmpty,
-} from "@/components/ui/command";
+  CommandTSX,
+  CommandGroupTSX,
+  CommandItemTSX,
+  CommandListTSX,
+  CommandEmptyTSX,
+} from "@/components/ui/commandtsx";
 import { DataTableFacetedFilter } from "./data-table-faceted-filter";
 
 /**
@@ -46,30 +46,30 @@ export default function DataTableFilterBar({ table, availableFilters }) {
   return (
     <div className="m-2">
       <div className="flex flex-wrap items-center gap-2">
-        <Popover open={open} onOpenChange={setOpen}>
-          <PopoverTrigger asChild>
+        <PopoverTSX open={open} onOpenChange={setOpen}>
+          <PopoverTriggerTSX asChild>
             <Button variant="outline" size="sm">
               Add Filter
             </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-[200px] p-0">
-            <Command>
-              <CommandList>
-                <CommandEmpty>No filters available</CommandEmpty>
-                <CommandGroup>
+          </PopoverTriggerTSX>
+          <PopoverContentTSX className="w-[200px] p-0">
+            <CommandTSX>
+              <CommandListTSX>
+                <CommandEmptyTSX>No filters available</CommandEmptyTSX>
+                <CommandGroupTSX>
                   {filtersToAdd.map((filter, index) => (
-                    <CommandItem
+                    <CommandItemTSX
                       key={`${filter.id}-${index}`}
                       onSelect={() => addFilter(filter)}
                     >
                       {filter.title}
-                    </CommandItem>
+                    </CommandItemTSX>
                   ))}
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </PopoverContent>
-        </Popover>
+                </CommandGroupTSX>
+              </CommandListTSX>
+            </CommandTSX>
+          </PopoverContentTSX>
+        </PopoverTSX>
         {activeFilters.map((filter) => (
           <div key={filter.id} className="flex items-center space-x-2">
             <DataTableFacetedFilter

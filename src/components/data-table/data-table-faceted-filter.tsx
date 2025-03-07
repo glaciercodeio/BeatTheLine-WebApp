@@ -13,12 +13,12 @@ import {
   CommandItemTSX,
   CommandListTSX,
   CommandSeparatorTSX,
-} from "@/components/ui/command";
+} from "@/components/ui/commandtsx";
 import {
   PopoverTSX,
   PopoverContentTSX,
   PopoverTriggerTSX,
-} from "@/components/ui/popover";
+} from "@/components/ui/popovertsx";
 import { SeparatorTSX } from "@/components/ui/separatortsx";
 
 interface DataTableFacetedFilterProps<TData, TValue> {

@@ -6,7 +6,7 @@ import { createAdminClient } from "@/utils/supabase/adminClient";
 export async function GET(request) {
   const supabase = await createServerClient();
   const { data, error } = await supabase.from("users").select("*");
-
+  console.log("aqui");
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
