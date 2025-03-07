@@ -4,22 +4,22 @@ import { Check, PlusCircle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { ButtonTSX } from "@/components/ui/buttontsx";
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
+  CommandTSX,
+  CommandEmptyTSX,
+  CommandGroupTSX,
+  CommandInputTSX,
+  CommandItemTSX,
+  CommandListTSX,
+  CommandSeparatorTSX,
 } from "@/components/ui/command";
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
+  PopoverTSX,
+  PopoverContentTSX,
+  PopoverTriggerTSX,
 } from "@/components/ui/popover";
-import { Separator } from "@/components/ui/separator";
+import { SeparatorTSX } from "@/components/ui/separatortsx";
 
 interface DataTableFacetedFilterProps<TData, TValue> {
   column?: Column<TData, TValue>;
@@ -40,14 +40,14 @@ export function DataTableFacetedFilter<TData, TValue>({
   const selectedValues = new Set(column?.getFilterValue() as string[]);
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="h-8 border-dashed">
+    <PopoverTSX>
+      <PopoverTriggerTSX asChild>
+        <ButtonTSX variant="outline" size="sm" className="h-8 border-dashed">
           <PlusCircle />
           {title}
           {selectedValues?.size > 0 && (
             <>
-              <Separator orientation="vertical" className="mx-2 h-4" />
+              <SeparatorTSX orientation="vertical" className="mx-2 h-4" />
               <Badge
                 variant="secondary"
                 className="rounded-sm px-1 font-normal lg:hidden"
@@ -78,18 +78,18 @@ export function DataTableFacetedFilter<TData, TValue>({
               </div>
             </>
           )}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0" align="start">
-        <Command>
-          <CommandInput placeholder={title} />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup>
+        </ButtonTSX>
+      </PopoverTriggerTSX>
+      <PopoverContentTSX className="w-[200px] p-0" align="start">
+        <CommandTSX>
+          <CommandInputTSX placeholder={title} />
+          <CommandListTSX>
+            <CommandEmptyTSX>No results found.</CommandEmptyTSX>
+            <CommandGroupTSX>
               {options.map((option) => {
                 const isSelected = selectedValues.has(option.value);
                 return (
-                  <CommandItem
+                  <CommandItemTSX
                     key={option.value}
                     onSelect={() => {
                       if (isSelected) {
@@ -122,26 +122,26 @@ export function DataTableFacetedFilter<TData, TValue>({
                         {facets.get(option.value)}
                       </span>
                     )}
-                  </CommandItem>
+                  </CommandItemTSX>
                 );
               })}
-            </CommandGroup>
+            </CommandGroupTSX>
             {selectedValues.size > 0 && (
               <>
-                <CommandSeparator />
-                <CommandGroup>
-                  <CommandItem
+                <CommandSeparatorTSX />
+                <CommandGroupTSX>
+                  <CommandItemTSX
                     onSelect={() => column?.setFilterValue(undefined)}
                     className="justify-center text-center"
                   >
                     Clear filters
-                  </CommandItem>
-                </CommandGroup>
+                  </CommandItemTSX>
+                </CommandGroupTSX>
               </>
             )}
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+          </CommandListTSX>
+        </CommandTSX>
+      </PopoverContentTSX>
+    </PopoverTSX>
   );
 }

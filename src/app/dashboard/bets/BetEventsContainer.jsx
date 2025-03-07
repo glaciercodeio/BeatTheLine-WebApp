@@ -12,7 +12,6 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
-import MasonryCard from "./MasonryCard";
 
 function generateAvailableFilters(data, columns) {
   return columns
