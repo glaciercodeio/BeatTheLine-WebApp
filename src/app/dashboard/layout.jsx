@@ -7,6 +7,7 @@ import { montserrat } from "@/app/components/ui/fonts";
 import "../globals.css";
 import { metadata } from "../layout"; // Reuse metadata
 import { Toaster, toast } from "sonner";
+import { getUserProfileById } from "@/lib/userProfile";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,28 +22,15 @@ const geistMono = Geist_Mono({
 export default async function DashboardLayout({ children }) {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
+  let user = null;
+
   if (error || !data?.user) {
     redirect("/login");
   }
-
-  const reqHeaders = await headers();
-  const host = reqHeaders.get("host");
-  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const apiUrl = `${protocol}://${host}/api/users`;
-  let user = null;
-
   try {
-    const response = await fetch(
-      `${apiUrl}?id=${encodeURIComponent(data?.user.id)}`,
-      {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    if (!response.ok) {
-      throw new Error("Error fetching profile");
-    }
-    user = await response.json();
+    const profile = await getUserProfileById(data?.user.id);
+
+    user = profile;
   } catch (error) {
     console.error("Error fetching profile:", error.message);
   }
